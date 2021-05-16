@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Розділ 8 Приклади задач та їх розв’язки | Основи роботи з даними у R</title>
+  <title>Розділ 8 Приклади задач та їх розв’язки | Підготовка, обробка та ефективне використання даних для наукових досліджень</title>
   <meta name="description" content="Курс вступ до програмування в R, Проект DataClass" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Розділ 8 Приклади задач та їх розв’язки | Основи роботи з даними у R" />
+  <meta property="og:title" content="Розділ 8 Приклади задач та їх розв’язки | Підготовка, обробка та ефективне використання даних для наукових досліджень" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="/images/cover.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="kleban/r-science-pub" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Розділ 8 Приклади задач та їх розв’язки | Основи роботи з даними у R" />
+  <meta name="twitter:title" content="Розділ 8 Приклади задач та їх розв’язки | Підготовка, обробка та ефективне використання даних для наукових досліджень" />
   
   <meta name="twitter:description" content="Курс вступ до програмування в R, Проект DataClass" />
   <meta name="twitter:image" content="/images/cover.png" />
@@ -272,7 +272,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Основи роботи з даними у R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Підготовка, обробка та ефективне використання даних для наукових досліджень</a>
           </h1>
         </div>
 
@@ -368,12 +368,12 @@ div.csl-indent {
 <span id="cb159-18"><a href="chapter6.html#cb159-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb159-19"><a href="chapter6.html#cb159-19" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">func.genVectorMod7</span>(<span class="dv">100</span>)</span>
 <span id="cb159-20"><a href="chapter6.html#cb159-20" aria-hidden="true" tabindex="-1"></a>vector</span></code></pre></div>
-<pre><code>##   [1] 182 154 154 161 189 105 147 168 154 154 175 133 182 112 168 168 140 161
-##  [19] 119 133 112 112 175 154 189 126 126 189 140 112 133 133 147 175 196 154
-##  [37] 112 182 168 182 189 154 154 147 112 189 154 105 126 154 196 112 175 154
-##  [55] 154 161 140 119 133 126 126 112 168 133 140 119 175 196 175 196 126 175
-##  [73] 126 133 126 189 196 119 189 105 105 133 126 133 105 133 105 112 133 147
-##  [91] 147 147 133 147 140 175 182 119 119 161</code></pre>
+<pre><code>##   [1] 189 168 154 126 133 182 196 175 105 154 119 175 105 154 133 147 147 182
+##  [19] 182 133 105 196 119 112 126 161 154 147 154 126 175 112 196 196 182 112
+##  [37] 126 119 161 161 168 112 189 112 112 196 147 140 168 105 154 133 161 133
+##  [55] 140 133 112 133 147 147 119 168 119 154 133 189 147 119 147 175 105 105
+##  [73] 168 154 161 140 105 119 189 133 147 147 133 147 126 140 161 112 154 196
+##  [91] 140 154 119 196 105 112 105 119 133 126</code></pre>
 </div>
 <div id="task6121" class="section level4" number="8.1.1.11">
 <h4><span class="header-section-number">8.1.1.11</span> Задача</h4>
@@ -429,14 +429,14 @@ div.csl-indent {
 <span id="cb165-13"><a href="chapter6.html#cb165-13" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb165-14"><a href="chapter6.html#cb165-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb165-15"><a href="chapter6.html#cb165-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
-<pre><code>##  [1] 26 32 35 38 47 57 59 84 88 98</code></pre>
+<pre><code>##  [1] 16 24 61 68 69 70 83 85 90 94</code></pre>
 <hr />
 <p>Рішення до <a href="chapter6.html#task6114">задачі 6.1.1.<strong>4</strong></a>:</p>
 <div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="chapter6.html#cb167-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="sc">-</span><span class="dv">100</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">size =</span> <span class="dv">10</span>)</span>
 <span id="cb167-2"><a href="chapter6.html#cb167-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Vector before sort:&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Vector before sort:&quot;</code></pre>
 <div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="chapter6.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
-<pre><code>##  [1] -82 -10 -77 -58  80  95 -40 -28 -29 -31</code></pre>
+<pre><code>##  [1] -44  78  63 -40 -73 -21 -91  38  73 -33</code></pre>
 <div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="chapter6.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(x)<span class="sc">-</span><span class="dv">1</span>)) {</span>
 <span id="cb171-2"><a href="chapter6.html#cb171-2" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb171-3"><a href="chapter6.html#cb171-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(x)<span class="sc">-</span><span class="dv">1</span>)) {</span>
@@ -451,7 +451,7 @@ div.csl-indent {
 <span id="cb171-12"><a href="chapter6.html#cb171-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Vector after sort:&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Vector after sort:&quot;</code></pre>
 <div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="chapter6.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
-<pre><code>##  [1]  80  95 -82 -10 -77 -58 -40 -28 -29 -31</code></pre>
+<pre><code>##  [1]  78  63  38  73 -44 -40 -73 -21 -91 -33</code></pre>
 <hr />
 <p>Рішення до <a href="chapter6.html#task6115">задачі 6.1.1.<strong>5</strong></a>:</p>
 <div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="chapter6.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="co">#number &lt;- as.numeric(readline(prompt = &quot;Введіть число:&quot;))</span></span>
@@ -473,7 +473,7 @@ div.csl-indent {
 <p>Рішення до <a href="chapter6.html#task6119">задачі 6.1.1.<strong>9</strong></a> (спосіб 1):</p>
 <div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="chapter6.html#cb177-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">replace =</span> T)</span>
 <span id="cb177-2"><a href="chapter6.html#cb177-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
-<pre><code>## [1] 3 7 6 7</code></pre>
+<pre><code>## [1] 7 6 9 5</code></pre>
 <div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="chapter6.html#cb179-1" aria-hidden="true" tabindex="-1"></a>x_parni <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
 <span id="cb179-2"><a href="chapter6.html#cb179-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb179-3"><a href="chapter6.html#cb179-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)) {</span>
@@ -489,7 +489,7 @@ div.csl-indent {
 <p>Рішення до <a href="chapter6.html#task6119">задачі 6.1.1.<strong>9</strong></a> (спосіб 2):</p>
 <div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="chapter6.html#cb181-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">replace =</span> T)</span>
 <span id="cb181-2"><a href="chapter6.html#cb181-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
-<pre><code>##  [1] 1 3 1 5 8 7 7 6 3 8</code></pre>
+<pre><code>##  [1] 1 7 7 5 4 2 8 3 3 4</code></pre>
 <div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="chapter6.html#cb183-1" aria-hidden="true" tabindex="-1"></a>sum <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb183-2"><a href="chapter6.html#cb183-2" aria-hidden="true" tabindex="-1"></a>count <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb183-3"><a href="chapter6.html#cb183-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -504,7 +504,7 @@ div.csl-indent {
 <span id="cb183-12"><a href="chapter6.html#cb183-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb183-13"><a href="chapter6.html#cb183-13" aria-hidden="true" tabindex="-1"></a>mean_value <span class="ot">=</span> sum <span class="sc">/</span> count</span>
 <span id="cb183-14"><a href="chapter6.html#cb183-14" aria-hidden="true" tabindex="-1"></a>mean_value</span></code></pre></div>
-<pre><code>## [1] 7.333333</code></pre>
+<pre><code>## [1] 4.5</code></pre>
 <hr />
 </div>
 <div id="chapter622" class="section level3" number="8.2.2">
@@ -512,7 +512,7 @@ div.csl-indent {
 <p>Рішення до <a href="chapter6.html#task6121">задачі 6.1.2.<strong>1</strong></a>:</p>
 <div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="chapter6.html#cb185-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">size =</span> <span class="dv">10</span>)</span>
 <span id="cb185-2"><a href="chapter6.html#cb185-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
-<pre><code>##  [1] 18 33 80 88 32 41 12 78 74 68</code></pre>
+<pre><code>##  [1] 31 99 55 26 82 92 64 89 33 73</code></pre>
 <div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="chapter6.html#cb187-1" aria-hidden="true" tabindex="-1"></a>vector.info <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
 <span id="cb187-2"><a href="chapter6.html#cb187-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
 <span id="cb187-3"><a href="chapter6.html#cb187-3" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">$</span>Sum <span class="ot">&lt;-</span> <span class="fu">sum</span>(vector)</span>
@@ -525,19 +525,19 @@ div.csl-indent {
 <span id="cb187-10"><a href="chapter6.html#cb187-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb187-11"><a href="chapter6.html#cb187-11" aria-hidden="true" tabindex="-1"></a><span class="fu">vector.info</span>(x)</span></code></pre></div>
 <pre><code>## $Sum
-## [1] 524
+## [1] 644
 ## 
 ## $Mean
-## [1] 52.4
+## [1] 64.4
 ## 
 ## $Median
-## [1] 54.5
+## [1] 68.5
 ## 
 ## $Min
-## [1] 12
+## [1] 26
 ## 
 ## $Max
-## [1] 88</code></pre>
+## [1] 99</code></pre>
 
 <div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="chapter6.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setlocale</span>(<span class="st">&quot;LC_CTYPE&quot;</span>, <span class="st">&quot;ukrainian&quot;</span>)</span></code></pre></div>
 </div>
