@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Розділ 1 Вступ до курсу | Основи роботи з даними у R</title>
+  <meta name="description" content="Курс вступ до програмування в R, Проект DataClass" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Розділ 1 Вступ до курсу | Основи роботи з даними у R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="/images/cover.png" />
+  <meta property="og:description" content="Курс вступ до програмування в R, Проект DataClass" />
+  <meta name="github-repo" content="kleban/r-science-pub" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Розділ 1 Вступ до курсу | Основи роботи з даними у R" />
+  
+  <meta name="twitter:description" content="Курс вступ до програмування в R, Проект DataClass" />
+  <meta name="twitter:image" content="/images/cover.png" />
+
+<meta name="author" content="Юрій Клебан" />
+
+
+<meta name="date" content="2021-05-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="prev" href="index.html"/>
+<link rel="next" href="chapter2.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SQNMJRY3XS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SQNMJRY3XS');
+</script>
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="https:/use.fontawesome.com/releases/v5.15.2/css/all.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a  style="margin: 7px 0 5px 0;padding:0" href="https://dataclass.org.ua" target="_blank"><img src="https://dataclass.org.ua/assets/template/images/dataclass_logo.png"></a><a href="./" style="font-weight:600; font-size:18px; padding:0">Вступ до R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Загальна інформація</a></li>
+<li class="chapter" data-level="1" data-path="chapter1.html"><a href="chapter1.html"><i class="fa fa-check"></i><b>1</b> Вступ до курсу</a>
+<ul>
+<li class="chapter" data-level="" data-path="chapter1.html"><a href="chapter1.html#план"><i class="fa fa-check"></i>План</a></li>
+<li class="chapter" data-level="1.1" data-path="chapter1.html"><a href="chapter1.html#chapter11"><i class="fa fa-check"></i><b>1.1</b> Що таке R?</a></li>
+<li class="chapter" data-level="1.2" data-path="chapter1.html"><a href="chapter1.html#chapter12"><i class="fa fa-check"></i><b>1.2</b> Історія створення R</a></li>
+<li class="chapter" data-level="1.3" data-path="chapter1.html"><a href="chapter1.html#chapter13"><i class="fa fa-check"></i><b>1.3</b> Основи роботи з R</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="chapter1.html"><a href="chapter1.html#chapter131"><i class="fa fa-check"></i><b>1.3.1</b> R Project</a></li>
+<li class="chapter" data-level="1.3.2" data-path="chapter1.html"><a href="chapter1.html#chapter132"><i class="fa fa-check"></i><b>1.3.2</b> Робота з R Studio</a></li>
+<li class="chapter" data-level="1.3.3" data-path="chapter1.html"><a href="chapter1.html#chapter133"><i class="fa fa-check"></i><b>1.3.3</b> Робота з Jupyter Notebook</a></li>
+<li class="chapter" data-level="1.3.4" data-path="chapter1.html"><a href="chapter1.html#chapter134"><i class="fa fa-check"></i><b>1.3.4</b> Огляд додаткових IDE та сервісів для роботи з R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="chapter1.html"><a href="chapter1.html#chapter14"><i class="fa fa-check"></i><b>1.4</b> Основи роботи з пакетами в R</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="chapter1.html"><a href="chapter1.html#chapter141"><i class="fa fa-check"></i><b>1.4.1</b> Команди для роботи з пакетами</a></li>
+<li class="chapter" data-level="1.4.2" data-path="chapter1.html"><a href="chapter1.html#chapter142"><i class="fa fa-check"></i><b>1.4.2</b> Робота з пакетами в RStudio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chapter2.html"><a href="chapter2.html"><i class="fa fa-check"></i><b>2</b> Базові конструкції мови R</a>
+<ul>
+<li class="chapter" data-level="" data-path="chapter2.html"><a href="chapter2.html#план-1"><i class="fa fa-check"></i>План</a></li>
+<li class="chapter" data-level="2.1" data-path="chapter2.html"><a href="chapter2.html#chapter21"><i class="fa fa-check"></i><b>2.1</b> Оголошення та ініціалізація змінних</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="chapter2.html"><a href="chapter2.html#chapter211"><i class="fa fa-check"></i><b>2.1.1</b> Поняття змінних та оператор присвоєння</a></li>
+<li class="chapter" data-level="2.1.2" data-path="chapter2.html"><a href="chapter2.html#chapter212"><i class="fa fa-check"></i><b>2.1.2</b> Правила іменування змінних</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="chapter2.html"><a href="chapter2.html#chapter22"><i class="fa fa-check"></i><b>2.2</b> Базові типи даних</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="chapter2.html"><a href="chapter2.html#chapter221"><i class="fa fa-check"></i><b>2.2.1</b> Типізація в R</a></li>
+<li class="chapter" data-level="2.2.2" data-path="chapter2.html"><a href="chapter2.html#chapter222"><i class="fa fa-check"></i><b>2.2.2</b> Перевірка та привдення типів даних</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="chapter2.html"><a href="chapter2.html#chapter23"><i class="fa fa-check"></i><b>2.3</b> Оператори</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="chapter2.html"><a href="chapter2.html#chapter231"><i class="fa fa-check"></i><b>2.3.1</b> Арифметичні оператори</a></li>
+<li class="chapter" data-level="2.3.2" data-path="chapter2.html"><a href="chapter2.html#chapter232"><i class="fa fa-check"></i><b>2.3.2</b> Оператори відношення</a></li>
+<li class="chapter" data-level="2.3.3" data-path="chapter2.html"><a href="chapter2.html#chapter233"><i class="fa fa-check"></i><b>2.3.3</b> Логічні оператори</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="chapter2.html"><a href="chapter2.html#chapter24"><i class="fa fa-check"></i><b>2.4</b> Корисні математичні функції</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="chapter2.html"><a href="chapter2.html#chapter241"><i class="fa fa-check"></i><b>2.4.1</b> Заокруглення чисел (round, ceiling, floor, trunc, signif)</a></li>
+<li class="chapter" data-level="2.4.2" data-path="chapter2.html"><a href="chapter2.html#chapter242"><i class="fa fa-check"></i><b>2.4.2</b> Послідовності чисел (seq, rep)</a></li>
+<li class="chapter" data-level="2.4.3" data-path="chapter2.html"><a href="chapter2.html#chapter243"><i class="fa fa-check"></i><b>2.4.3</b> Генерація псевдовипадкових чисел</a></li>
+<li class="chapter" data-level="2.4.4" data-path="chapter2.html"><a href="chapter2.html#chapter244"><i class="fa fa-check"></i><b>2.4.4</b> Інші математичні функції та константи R</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="chapter2.html"><a href="chapter2.html#chapter245"><i class="fa fa-check"></i><b>2.5</b> Введення-виведння даних</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chapter3.html"><a href="chapter3.html"><i class="fa fa-check"></i><b>3</b> Основи роботи з даними в R</a>
+<ul>
+<li class="chapter" data-level="" data-path="chapter3.html"><a href="chapter3.html#план-2"><i class="fa fa-check"></i>План</a></li>
+<li class="chapter" data-level="3.1" data-path="chapter3.html"><a href="chapter3.html#chapter31"><i class="fa fa-check"></i><b>3.1</b> Набори даних</a></li>
+<li class="chapter" data-level="3.2" data-path="chapter3.html"><a href="chapter3.html#chapter32"><i class="fa fa-check"></i><b>3.2</b> Вектори (vectors)</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="chapter3.html"><a href="chapter3.html#chapter321"><i class="fa fa-check"></i><b>3.2.1</b> Поняття та спосіб представлення</a></li>
+<li class="chapter" data-level="3.2.2" data-path="chapter3.html"><a href="chapter3.html#chapter322"><i class="fa fa-check"></i><b>3.2.2</b> Оголошення векторів</a></li>
+<li class="chapter" data-level="3.2.3" data-path="chapter3.html"><a href="chapter3.html#chapter323"><i class="fa fa-check"></i><b>3.2.3</b> Операції над векторами</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chapter4.html"><a href="chapter4.html"><i class="fa fa-check"></i><b>4</b> Читання та запис даних у R</a>
+<ul>
+<li class="chapter" data-level="" data-path="chapter4.html"><a href="chapter4.html#план-3"><i class="fa fa-check"></i>План</a></li>
+<li class="chapter" data-level="4.1" data-path="chapter4.html"><a href="chapter4.html#chapter41"><i class="fa fa-check"></i><b>4.1</b> Загальний опис структури даних</a></li>
+<li class="chapter" data-level="4.2" data-path="chapter4.html"><a href="chapter4.html#chapter42"><i class="fa fa-check"></i><b>4.2</b> Опис набору даних <code>Telecom Users</code></a></li>
+<li class="chapter" data-level="4.3" data-path="chapter3.html"><a href="chapter3.html#chapter321"><i class="fa fa-check"></i><b>4.3</b> Імпорт даних засобами RStudio</a></li>
+<li class="chapter" data-level="4.4" data-path="chapter3.html"><a href="chapter3.html#chapter321"><i class="fa fa-check"></i><b>4.4</b> CSV-файли: читання,</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chapter6.html"><a href="chapter6.html"><i class="fa fa-check"></i><b>5</b> Приклади задач та їх розв’язки</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chapter6.html"><a href="chapter6.html#chapter61"><i class="fa fa-check"></i><b>5.1</b> Задачі</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="chapter6.html"><a href="chapter6.html#chapter611"><i class="fa fa-check"></i><b>5.1.1</b> Послідовності</a></li>
+<li class="chapter" data-level="5.1.2" data-path="chapter6.html"><a href="chapter6.html#chapter612"><i class="fa fa-check"></i><b>5.1.2</b> Функції</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="chapter6.html"><a href="chapter6.html#chapter62"><i class="fa fa-check"></i><b>5.2</b> Рішення задач</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="chapter6.html"><a href="chapter6.html#chapter621"><i class="fa fa-check"></i><b>5.2.1</b> Послідовності та вектори</a></li>
+<li class="chapter" data-level="5.2.2" data-path="chapter6.html"><a href="chapter6.html#chapter622"><i class="fa fa-check"></i><b>5.2.2</b> Функції</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="-e-.html"><a href="-e-.html"><i class="fa fa-check"></i>Джeрела</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Створено з bookdown</a></li>
+<li><a href="https://dataclass.org.ua" target="blank">Сайт проекту DataCalss</a></li>  
+<li><a href="https://github.com/kleban/r-intro-pub/issues" style="color:#e53b49" target="blank"><i class="fas fa-bug"></i> Знайшли помилку?</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Основи роботи з даними у R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chapter1" class="section level1" number="1">
+<h1><span class="header-section-number">Розділ 1</span> Вступ до курсу</h1>
+<div id="план" class="section level2 unnumbered">
+<h2>План</h2>
+<ul>
+<li><a href="chapter1.html#chapter11">Що таке R?</a></li>
+<li><a href="chapter1.html#chapter12">Історія створення R</a></li>
+<li><a href="chapter1.html#chapter13">Основи роботи з R</a>
+<ul>
+<li><a href="chapter1.html#chapter131">R Project</a>
+<ul>
+<li><a href="chapter1.html#chapter1311">Завантаження та інсталяція R</a></li>
+<li><a href="chapter1.html#chapter1312">Перший запуск R GUI</a></li>
+<li><a href="chapter1.html#chapter1313">Поняття робочого простору</a></li>
+<li><a href="chapter1.html#chapter1314">Поняття робочого каталогу</a></li>
+<li><a href="chapter1.html#chapter1315">Допомога (help/?)</a></li>
+</ul></li>
+<li><a href="chapter1.html#chapter132">Робота з R Studio</a>
+<ul>
+<li><a href="chapter1.html#chapter1321">Завантаження та інсталяція RStudio Desktop</a></li>
+<li><a href="#chapter1322">Створення першого проекту в RStudio</a></li>
+</ul></li>
+<li><a href="chapter1.html#chapter133">Робота з Jupyter Notebook</a></li>
+<li><a href="chapter1.html#chapter134">Огляд додаткових IDE та сервісів для роботи з R</a></li>
+</ul></li>
+<li><a href="chapter1.html#chapter14">Основи роботи з пакетами в R</a>
+<ul>
+<li><a href="chapter1.html#chapter141">Команди для роботи з пакетами</a></li>
+<li><a href="chapter1.html#chapter142">Робота з пакетами в RStudio</a></li>
+</ul></li>
+</ul>
+<hr />
+</div>
+<div id="chapter11" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Що таке R?</h2>
+<p>R є поширеною мовою програмування для роботи з даними (<code>DataScience</code>) та машинного навчання (<code>Machine Learning</code>). Але Ви можете скористатися засобами R і для простіших задач: обчислення, візуалізація даних.</p>
+<p>Синтаксис мови програмування R є досить простим для вивчення та використання, а широкий набір готових пакетів дозволяє використати готові розробки для виіршення широкого спектру задач від статистичних обчислень до навчання нейронних мереж для розпізнавання/класифікації зображень.</p>
+<p>Важливо відмітити, що мова програмування R є безкоштовною (<code>free</code>) і має відкритий код (<code>open source</code>).</p>
+<p>R має ряд корисних властивостей, серед яких варто виділити:</p>
+<ul>
+<li><p><strong>Візуалізація даних</strong>. Побудова різноманітих видів графіків, робота з мапами, широкий спектр бібліотек та налаштувань до них.</p></li>
+<li><p><strong>Повторне використання коду</strong>. На відміну від електронних таблиць, що мають обмеження на кількість спостережень (наприклад, MS Excel), R дозволяє працювати з великими масивами даних та перезапускати обчислення у потрібний момент не створюючи додаткових копій даних.</p></li>
+<li><p><strong>Машинне навчання</strong>. R дозволяє використати для побудови, навчання та тестування моделей, а також оптимізації гіперпараметрів та відбору факторів дуже велику кількість алгоритмів. Існують також спеціальні пакети, що об’єднують у собі усі описані функції та алгоритми, наприклад, <code>caret</code> та <code>mlr</code>.</p></li>
+<li><p><strong>Автоматизація</strong>. Написаний код та проекти можна перетворити у готові до публікації та впровадження продукти (deployment) або використовувати напрацьовані алгоритми для швидкого вирішення схожих задач (pipeline).</p></li>
+</ul>
+<p>Також можна виділити досить корисні фічі <strong>Розробка веб-застосунків</strong> та <strong>Звітність</strong>, адже, використовуючи спеціальні бібліотеки (<code>shiny</code>, <code>shinydashboard</code>, <code>flexdashboard</code>, <code>rmarkdown</code>, <code>knitr</code> тощо), результати виконаної роботи можна “оживити” або сформувати “на льоту” готові до презентації документи.</p>
+<hr />
+</div>
+<div id="chapter12" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Історія створення R</h2>
+<p>Мова програмування <code>R</code> виникла як продовження статистичної мови <code>S</code>. Назва мови <code>S</code> була обрана аналогічно до <code>C</code>. Створена <code>S</code> була у 1976 році компанією <code>Bell Labs</code>. Мова <code>S</code> мала кілька версій і широко використовувалася для комерційного програмування. Найпотужнішою була версія <code>S-Plus</code>, що мала реалізацію за досить немалу кількість функцій під <code>Windows</code> та <code>Unix</code>-платформи, що стримувало її розвиток. Саме в цей момент розпочинається історія <code>R</code>.</p>
+<p>Влітку 1993 року двоє молодих новозеландських вчених анонсували свлю нову розробку, яку вони назвали <code>R</code> (є інформація, що буква “R” була обрана тому, що вона стоїть перед “S” у латинському алфавіті, тут є аналогія з мовою “C,” якій передувала мова “B”) <span class="citation">(<a href="#ref-R-stats-book" role="doc-biblioref">А.Б. Шипунов, Е.М. Балдин, П.А. Волкова, А.И. Коробейников, С.А. Назарова, С.В. Петров, В.Г. Суфиянов. 2012</a>)</span>. За задумом авторів (Robert Gentelman та Ross Ihaka) це повинна була бути нова реалізація мови <code>S</code>, що відрізнялася від <code>S-Plus</code> деякими деталями, наприклад, роботою з локальними та глобальними змінними, пам’яттю тощо. Фактично було створено нову мову, що відгалуджується від <code>S</code>.</p>
+<p>Проект з самого початку розвивався досить повільно, але коли у команди розробників <code>R</code> з’явлися ресурси, в тому числі зручна системи створення розширень (пакетів), все більше аналітиків, статистиків, вчених, програмістів почало переходити з <code>S-Plus</code> на <code>R</code>. Коли були усунуті проблеми роботи з пам’яттю перших версій <code>R</code>, на цю мову почали переходити користувачі інших статистичних пакетів (SAS, Stata, SYSSTAT).</p>
+<p>Кількість книг та публікацій у мережі Інтернет по роботі з R постійно зростає разом із зацікавленням молодих і вже досвідчених спеціалістів зі сфери ІТ темою науки про дані, машинним навчанням, аналітикою для бізнесу, охорони здоров’я тощо.</p>
+<hr />
+</div>
+<div id="chapter13" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Основи роботи з R</h2>
+<div id="chapter131" class="section level3" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> R Project</h3>
+<p><code>R</code> є безкоштовним програмним забезпеченням, що розповсюджується за умовами <a href="https://www.r-project.org/COPYING">GNU General Public License</a>. Код, написаний на <code>R</code> компілюється та запускається на різних платформах: UNIX, Windows, MacOS <span class="citation">(<a href="#ref-R-base" role="doc-biblioref">R Core Team 2020</a>)</span>.</p>
+<div id="chapter1311" class="section level4" number="1.3.1.1">
+<h4><span class="header-section-number">1.3.1.1</span> Завантаження та інсталяція R</h4>
+<p>Для завантаження актуальної версії R варто перейти на сайт проекту <a href="https://cran.r-project.org/">https://cran.r-project.org/</a>.</p>
+<p>На сайті обираємо завантаження <code>R</code> для потрібної операційної системи. У межах курсу ми вокристовуємо <code>ОС Windows</code>, проте на синтаксис мови програмування та процес написання коду це не впливає:</p>
+<div class="figure"><span id="fig:unnamed-chunk-1"></span>
+<img src="images/chapter1/r_gui_1.png" alt="Завантаження R. Вибір ОС"  />
+<p class="caption">
+Рис. 1.1: Завантаження R. Вибір ОС
+</p>
+</div>
+<p>У наступному вікні клікаємо на <strong>install R for the first time</strong>:</p>
+<div class="figure"><span id="fig:unnamed-chunk-2"></span>
+<img src="images/chapter1/r_gui_2.png" alt="Завантаження R. Перша інсталяція"  />
+<p class="caption">
+Рис. 1.2: Завантаження R. Перша інсталяція
+</p>
+</div>
+<p>Далі обираємо <strong>Download R 4.X.X for Windows</strong>, де <code>4.X.X</code> версія <code>R</code>, яка може бути відмінною на момент вивчення курсу:</p>
+<div class="figure"><span id="fig:unnamed-chunk-3"></span>
+<img src="images/chapter1/r_gui_3.png" alt="Завантаження R. Завантаження версії для ОС"  />
+<p class="caption">
+Рис. 1.3: Завантаження R. Завантаження версії для ОС
+</p>
+</div>
+<p>Після завантаження файлу інсталяції потрібно його запустити. Зазвичай завантажений файл можна побачити у лівому нижному кутку браузера або у розділі “Завантаження” Вашого браузера. Наприклад, у браузері <code>Google Chrome</code> знайти цей пункт меню так:</p>
+<div class="figure"><span id="fig:unnamed-chunk-4"></span>
+<img src="images/chapter1/chrome_download_button.png" alt="Завантаження R. Розділ &quot;Завантаження&quot; у Google Chrome"  />
+<p class="caption">
+Рис. 1.4: Завантаження R. Розділ “Завантаження” у Google Chrome
+</p>
+</div>
+<p>Процес інсталяції ПЗ не відрізняється від інших програм і детального опису не потребує. Основним тут є запам’ятати шлях встановлення проекту або “відмітити галочками” пункти щодо публікації на <em>Робочий стіл</em> чи у меню швидкого доступу ярликів для того, щоб знайти файли запуску.</p>
+</div>
+<div id="chapter1312" class="section level4" number="1.3.1.2">
+<h4><span class="header-section-number">1.3.1.2</span> Перший запуск R GUI</h4>
+<p>За замовчуванням під час інсталяції пропонується шлях <code>C:\Program Files\R\R-4.X.X</code>.</p>
+<p>Для запуску <code>R GUI</code> (стандартного графічного інтерфейсу для роботи з <code>R</code>) потрібно зайти у папку <code>bin\x64</code> (або <code>i386</code>, якщо у Вас 32-х розрядна ОС) та запустити файл <code>Rgui.exe</code>.</p>
+<p>Вигляд вікна <code>R GUI</code> зображено нижче:</p>
+<div class="figure"><span id="fig:unnamed-chunk-5"></span>
+<img src="images/chapter1/r_gui_4.png" alt="Вигляд головного вікна RGui"  />
+<p class="caption">
+Рис. 1.5: Вигляд головного вікна RGui
+</p>
+</div>
+<div class="alert alert-info">
+<p><i class="fas fa-info-circle fa-alert fa-2x"></i>
+<em>GUI</em> (<em>G</em>raphical <em>U</em>ser <em>I</em>nterface) - набір візуальних компонентів для інтерактивної взаємодії користувача з програмним забезпеченням.</p>
+</div>
+<p>У вікні <code>R Console</code> можна вводити команди/інструкції <code>R</code>, що будуть виконуватися:</p>
+<p>Результати виконання команд зберігаються у памяті програми і можуть бути використані у наступних блоках коду:</p>
+<div class="figure"><span id="fig:unnamed-chunk-6"></span>
+<img src="images/chapter1/r_gui_5.png" alt="Вигляд консолі для команд RGui"  />
+<p class="caption">
+Рис. 1.6: Вигляд консолі для команд RGui
+</p>
+</div>
+<p>Середовище <code>R GUI</code> має широкий спектр функцій і дозволяє написати будь-якого рівня складності проекти на R, проте він є лише базовою графічною обгорткою для <code>R</code>. Розглянемо інші зручніші середовища для написання <code>R</code>-коду.</p>
+</div>
+<div id="chapter1313" class="section level4" number="1.3.1.3">
+<h4><span class="header-section-number">1.3.1.3</span> Поняття робочого простору</h4>
+<p>У процесі виконання коду створені об’єкти/змінні та функції зберігаються у поточній сесії. У <code>R</code> є можливість переглянути список збережних елментів, видалити усі або окремі, зберегти стан поточної сесії диск та завантажити його пізніше, щоб не проходти усі етапи виконання коду повторно <em>(інколи дуже складний код може виконувати досить довго і збереження проміжних результатів може бути хорошим рішенням)</em>.</p>
+<p>Для прикладу створимо дві змінні <code>var1</code>, <code>var2</code> та виведемо на консоль їх значення:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="chapter1.html#cb1-1" aria-hidden="true" tabindex="-1"></a>var1 <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb1-2"><a href="chapter1.html#cb1-2" aria-hidden="true" tabindex="-1"></a>var2 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">15</span>)</span>
+<span id="cb1-3"><a href="chapter1.html#cb1-3" aria-hidden="true" tabindex="-1"></a>var1</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="chapter1.html#cb3-1" aria-hidden="true" tabindex="-1"></a>var2</span></code></pre></div>
+<pre><code>## [1] 3.872983</code></pre>
+<p>Для того аби переглянути список змінних у поточній сесії варто скористатися <strong><code>ls()</code></strong>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="chapter1.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;var1&quot; &quot;var2&quot;</code></pre>
+<p>Якщо виникає потреба очистити робочий простір і звільними пам’ять використовується команда <code>rm()</code>. Так, щоб очистити усі змінні можна скористатися <code>rm(list = ls())</code>, якщо ж Ви хочете видалити якусь одну/дві змінних, то просто вкажіть імена:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="chapter1.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">c</span>(<span class="st">&quot;var1&quot;</span>))</span>
+<span id="cb7-2"><a href="chapter1.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;var2&quot;</code></pre>
+<p>Таким чином, після виконання коду вище, залишиться лише змінна <code>var2</code>.</p>
+<p>Зберігання образу (<code>image</code>) робочого простору на диск здыйснюэться за допомогою команди <code>save.image("шлях до файлу.RData")</code>, а його зчитування за допомогою <code>load("шлях до файлу.RData")</code>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="chapter1.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clear workspace</span></span>
+<span id="cb9-2"><a href="chapter1.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb9-3"><a href="chapter1.html#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="chapter1.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># declare data</span></span>
+<span id="cb9-5"><a href="chapter1.html#cb9-5" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb9-6"><a href="chapter1.html#cb9-6" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> a <span class="sc">+</span> <span class="dv">15</span></span>
+<span id="cb9-7"><a href="chapter1.html#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="chapter1.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Save image to file</span></span>
+<span id="cb9-9"><a href="chapter1.html#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">save.image</span>(<span class="st">&quot;tmp.RData&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="chapter1.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clear workspace</span></span>
+<span id="cb10-2"><a href="chapter1.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb10-3"><a href="chapter1.html#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="chapter1.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># load image to file</span></span>
+<span id="cb10-5"><a href="chapter1.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;tmp.RData&quot;</span>)</span>
+<span id="cb10-6"><a href="chapter1.html#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="chapter1.html#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(a)</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="chapter1.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(b)</span></code></pre></div>
+<pre><code>## [1] 25</code></pre>
+<p>У прикладі 2 не створюєть жодного параметра, проте вони збережні у файлі сесії.</p>
+<p>Для того аби зберегти та зчитати окремий об’єкт, а не всі елементи сесії у <code>R</code> э спеціальний формат <code>.RDS</code>, який реалізовується методами <code>saveRDS(об'єкт, file="шлях_файлу.rds")</code> та <code>readRDS(file="шлях_файлу.rds")</code>.</p>
+</div>
+<div id="chapter1314" class="section level4" number="1.3.1.4">
+<h4><span class="header-section-number">1.3.1.4</span> Поняття робочого каталогу</h4>
+<p>Робота в будь-якому середовищі передбачає зв’язок із поточним каталогом, відносно якого будуються шляхи до файлів. Звичайно можна писати завжди повний шлях до файла, проте такий підхід є досить негнучким і під час перенесення коду між ПК створює чимало проблем розробникам.</p>
+<p>Для визначення базового каталогу <code>R</code> в поточній сесії використовують команду <code>getwd()</code>. Якщо Ви користуєтеся <code>RStudio</code> та створили проект, то цей каталог буде відповідати повному шляху до папки проекту:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="chapter1.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;E:/Repos/YuRa/r-science-dev&quot;</code></pre>
+<p>Для того аби змінити поточний робочий каталог використовують команду <code>setwd(шлях)</code>. Після запуску цієї команди функцій <code>getwd()</code> буде вказутивати уже на нову адресу/шлях.</p>
+<div class="alert aler-warning">
+<p><i class="fas fa-2x fa-life-ring fa-alert"></i>
+Варто знати та вміти будувати <strong>абсолютні</strong> та <strong>відносні</strong> шляхи до каталогів та файлів, ці знання корисні для роботи з усіма мовами програмування та більшістю ПЗ для роботи з даними.</p>
+</div>
+<p>Для запису шляху у ОС Windows можна скористатися 2-ма способами:</p>
+<ul>
+<li><code>/</code> - <strong><em>слеш</em></strong>, записується як один знак;</li>
+<li><code>\\</code> - <strong><em>бекслеш</em></strong>, записується як два знаки.</li>
+</ul>
+<p>У прикладі нижче обидва шляхи ведуть до тієї ж папки (<code>drive</code> - буква диска):</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="chapter1.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;drive:/folder1/folder2/&quot;</span>)</span>
+<span id="cb16-2"><a href="chapter1.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;drive:</span><span class="sc">\\</span><span class="st">folder1</span><span class="sc">\\</span><span class="st">folder2</span><span class="sc">\\</span><span class="st">&quot;</span>)</span></code></pre></div>
+<p>Для перегляду інформації про наявні каталоги та файли у поточній робочій папці можна скористатися командою <code>dir()</code> або <code>list.files()</code>:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="chapter1.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;_bookdown.yml&quot;        &quot;_bookdown_files&quot;      &quot;_output.yml&quot;         
+##  [4] &quot;01-chapter1.Rmd&quot;      &quot;01-chapter1_files&quot;    &quot;01-intro_files&quot;      
+##  [7] &quot;02-chapter2.Rmd&quot;      &quot;02-chapter2_files&quot;    &quot;03-chapter3.Rmd&quot;     
+## [10] &quot;04-chapter4.Rmd&quot;      &quot;06-chapter6.Rmd&quot;      &quot;07-references.Rmd&quot;   
+## [13] &quot;book.bib&quot;             &quot;css&quot;                  &quot;favicon.ico&quot;         
+## [16] &quot;images&quot;               &quot;inc&quot;                  &quot;index.md&quot;            
+## [19] &quot;index.Rmd&quot;            &quot;packages.bib&quot;         &quot;preamble.tex&quot;        
+## [22] &quot;r-science.rds&quot;        &quot;README.md&quot;            &quot;render_commands&quot;     
+## [25] &quot;render7a49146db5.rds&quot; &quot;RScience.Rproj&quot;       &quot;tmp.RData&quot;</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="chapter1.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;_bookdown.yml&quot;        &quot;_bookdown_files&quot;      &quot;_output.yml&quot;         
+##  [4] &quot;01-chapter1.Rmd&quot;      &quot;01-chapter1_files&quot;    &quot;01-intro_files&quot;      
+##  [7] &quot;02-chapter2.Rmd&quot;      &quot;02-chapter2_files&quot;    &quot;03-chapter3.Rmd&quot;     
+## [10] &quot;04-chapter4.Rmd&quot;      &quot;06-chapter6.Rmd&quot;      &quot;07-references.Rmd&quot;   
+## [13] &quot;book.bib&quot;             &quot;css&quot;                  &quot;favicon.ico&quot;         
+## [16] &quot;images&quot;               &quot;inc&quot;                  &quot;index.md&quot;            
+## [19] &quot;index.Rmd&quot;            &quot;packages.bib&quot;         &quot;preamble.tex&quot;        
+## [22] &quot;r-science.rds&quot;        &quot;README.md&quot;            &quot;render_commands&quot;     
+## [25] &quot;render7a49146db5.rds&quot; &quot;RScience.Rproj&quot;       &quot;tmp.RData&quot;</code></pre>
+</div>
+<div id="chapter1315" class="section level4" number="1.3.1.5">
+<h4><span class="header-section-number">1.3.1.5</span> Допомога (help/?)</h4>
+<p>Для отримання швидкої довідки в <code>R</code> варто скористатися функціє <code>help(назва_об'єкта_або_функції)</code> або <code>?назва_об'єкта_або_функції</code>:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="chapter1.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get help for intersect() function</span></span>
+<span id="cb21-2"><a href="chapter1.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(intersect)</span></code></pre></div>
+<p>Якщо є потреба отримати інформацію про пакет скористайтеся:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="chapter1.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="at">package =</span> <span class="st">&quot;stats&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="chapter132" class="section level3" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> Робота з R Studio</h3>
+<div id="chapter1321" class="section level4" number="1.3.2.1">
+<h4><span class="header-section-number">1.3.2.1</span> Завантаження та інсталяція RStudio Desktop</h4>
+<p><strong>RStudio</strong> - це інтегроване середовище розробки для <code>R</code>. Воно включає у себе консоль, підсвічування синтаксису (підказки), прямий запуск коду, інструменти для візуалізації графіків, html-коду, історію виконаних команд, відлагоджування коду, управління робочими просторами, підтримка різних видів розмітки та багато іншого. RStudio має версію з відкритим кодом та комерційну версію для <code>Windows</code>, <code>Linux</code> та <code>Mac</code>, а також веб-версію для серверів на Linux <code>RStudio Server</code> та <code>RStudio Server Pro</code> <span class="citation">(<a href="#ref-R-studio-site" role="doc-biblioref"><em>RStudio Official Website</em> 2021</a>)</span>.</p>
+<div class="alert alert-info">
+<p><i class="fas fa-2x fa-info-circle fa-alert"></i>
+IDE (<code>integrated development environment</code>) - комплексне програмне рішення для розробки програмного забезпечення. Зазвичай, складається з редактора початкового коду, інструментів для автоматизації складання та відлагодження програм. Більшість сучасних середовищ розробки мають можливість автодоповнення коду. <a href="https://uk.wikipedia.org/wiki/%D0%86%D0%BD%D1%82%D0%B5%D0%B3%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B5_%D1%81%D0%B5%D1%80%D0%B5%D0%B4%D0%BE%D0%B2%D0%B8%D1%89%D0%B5_%D1%80%D0%BE%D0%B7%D1%80%D0%BE%D0%B1%D0%BA%D0%B8" target="_blank" >Wikipedia</a></p>
+</div>
+<p>Завантажити продукти можна з сайту <a href="https://rstudio.com" class="uri">https://rstudio.com</a>. Щоб знайти середовище, яке ми будемо використовувати під час вивчення курсу варто виконати наступні кроки:</p>
+<ol style="list-style-type: decimal">
+<li>У головному меню сайту обрати <code>Products &gt; RStudio</code>.</li>
+<li>Знаходимо на сторінці кнопку для завантаження програми <code>RStudio Desktop</code> версії <code>Open Source</code> та натискаємо <strong>DOWNLOAD RSTUDIO DESKTOP</strong>:</li>
+</ol>
+<div class="figure"><span id="fig:unnamed-chunk-13"></span>
+<img src="images/chapter1/rstudio_1.png" alt="Вибір версії RStudio Desktop"  />
+<p class="caption">
+Рис. 1.7: Вибір версії RStudio Desktop
+</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Далі обираємо завантаження безкоштовної версії <code>RStudio Desktop</code> з наданого переліку:</li>
+</ol>
+<div class="figure"><span id="fig:unnamed-chunk-14"></span>
+<img src="images/chapter1/rstudio_2.png" alt="Завантаження RStudio Desktop"  />
+<p class="caption">
+Рис. 1.8: Завантаження RStudio Desktop
+</p>
+</div>
+<p>Після завантаження запускаємо інсталятор <code>RStudio</code>. Особливих кроків у цьому процесі немає.</p>
+<p>Після запуску IDE RStudio зазвичай складається з 3-х або 4-х блоків:
+* Файл, з яким працювали останнім (зліва зверху).
+* Консоль для введення коду та виведення результатів (зліва знизу).
+* Змінні середовища (<code>Environment</code>) (справа зверху) + Історія команд (<code>History</code>), Зєднання з зовнішніми ресурсами даних, наприклад, бази даних (<code>Connections</code>), навчальна інструкція (<code>Tutorial</code>).
+* Файли каталогу або проекту (<code>Files</code>), Інстальовані пакети (<code>Packages</code>), Допомога (<code>Help</code>), Візуалізація результатів (<code>Plots</code>, <code>Viewer</code>).</p>
+<div class="figure"><span id="fig:unnamed-chunk-15"></span>
+<img src="images/chapter1/rstudio_3.png" alt="Головне вікно RStudio Desktop"  />
+<p class="caption">
+Рис. 1.9: Головне вікно RStudio Desktop
+</p>
+</div>
+Для першої демонстрації роботи виконаємо у консолі 2 рядки коду:
+<div class="figure"><span id="fig:unnamed-chunk-16"></span>
+<img src="images/chapter1/rstudio_4.png" alt="Приклад написання коду в RStudio Desktop"  />
+<p class="caption">
+Рис. 1.10: Приклад написання коду в RStudio Desktop
+</p>
+</div>
+<p>Перший рядок з кодом <code>data &lt;- c(3,7,1,6,3,4,5,4,2)</code> створює у пам’яті колекцію чисел. Зверніть увагу, що у блоці <strong>Environments</strong> відобраюаться усі змінні, що уснують у поточному робочому просторі (про це буде далі).</p>
+<p>Другий рядок <code>plot(data, type="l")</code> дозволяє побудувати простий лінійний графік (<code>type="l" - linear, "p" - point</code>, <code>help(plot)</code> для деталей). Графіки, що “промальовуються” як картинки выдображаються у блоці <strong>Plots</strong>. Якщо ж графік має більш складну візуалізацію з інтерактивними елементами, що використовують уже засоби html/css/js, то він буде відображений у блоці <strong>View</strong>.</p>
+<p>Якщо перемкнутися на вкладку <strong>History</strong>, то ми побачимо перелік раніше виконаних команд.</p>
+<div class="alert alert-info text-center">
+<p>Для швидкого “гортання” уже виконаних раніше команд на консолі (<em>Console</em>) можна скористатися клавішами Up/Down на клавіатурі: <br>
+<img src="images/chapter1/arrow_keys.png" alt="Arrow Keys" /></p>
+</div>
+</div>
+<div id="створення-першого-проекту-в-rstudio-chapter1322" class="section level4" number="1.3.2.2">
+<h4><span class="header-section-number">1.3.2.2</span> Створення першого проекту в RStudio {chapter1322}</h4>
+<p>На відміну від <code>R Gui</code> в <code>RStudio</code> реалізовано концепцію проектів, що дозволяє організувати код та поєднати різні його частини у межах певного рішення.</p>
+<p>Створимо наш перший проект.</p>
+<p>Для початку оберемо з верхнього меню пункт <code>File &gt; New Project</code>. У вікні вибору способу створення проекту клікаємо <code>New Directory</code>. Такий спосіб передбачає, що жодного файлу проекту поки не існує або ми пізніше туди скопіюємо уже готовий код.</p>
+<div class="figure"><span id="fig:unnamed-chunk-17"></span>
+<img src="images/chapter1/rstudio_6.png" alt="RStudio Desktop. Новий проект"  />
+<p class="caption">
+Рис. 1.11: RStudio Desktop. Новий проект
+</p>
+</div>
+<p>На наступному кроці обираємо <code>New Project</code>:</p>
+<div class="figure"><span id="fig:unnamed-chunk-18"></span>
+<img src="images/chapter1/rstudio_7.png" alt="RStudio Desktop. Новий проект. Тип проекту"  />
+<p class="caption">
+Рис. 1.12: RStudio Desktop. Новий проект. Тип проекту
+</p>
+</div>
+<p>Після кліку на <code>Create Project</code> буде створено папку за попередньо обраним шляхом. Для запуску проекту або швидкого перемикання між проектами можна скористатися як пунктами головного меню, так і підменю проектів справа. Також відкрити проект можна запуском файлу <code>*.Rproj</code> у провіднику <code>Windows</code>.</p>
+<div class="figure"><span id="fig:unnamed-chunk-19"></span>
+<img src="images/chapter1/rstudio_8.png" alt="RStudio Desktop. Новий проект"  />
+<p class="caption">
+Рис. 1.13: RStudio Desktop. Новий проект
+</p>
+</div>
+<p>Щоб додати новий файл з кодом <code>R</code> потрібно обрати з головного меню <code>File &gt; New file &gt; R Script</code> або скористатися командою <code>Ctrl+Shift+N</code>. Новий файл буде створено з назвою <code>Untitled[X]</code>, тому рекомендую одразу його зберегти, наприклад, як <code>TestCode.R</code></p>
+<p>Для першого проекту розвяжемо наступну задачу:</p>
+<blockquote>
+<p>Написати програму, що генерує вектор з 20-ти випадкових чисел у межах [1;5], обчислює середнє та суму чисел, а також виводить гістограму частоти кожного значення (скільки разів дане число повторюється у векторі).</p>
+</blockquote>
+<p>Код для генерації 20-ти випадкових чесел у діапазоні [1;5] матиме наступний вигляд:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="chapter1.html#cb23-1" aria-hidden="true" tabindex="-1"></a>vtr <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">20</span>, <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
+<span id="cb23-2"><a href="chapter1.html#cb23-2" aria-hidden="true" tabindex="-1"></a>vtr</span></code></pre></div>
+<pre><code>##  [1] 5 1 1 4 5 3 1 5 4 1 3 4 5 2 3 3 1 3 2 2</code></pre>
+<div class="alert alert-danger">
+<p><i class="fas fa-bell fa-2x fa-alert"></i>
+Результати виконання на Вашому ПК будуть іншими, адже <strong>псевдо</strong>генератор випадкових чисел буде брати іншу “точку відліку” для генерування чисел. Рекомендую перегляду функцію <code>set.seed(точка відліку - число)</code>.</p>
+<p><em>P.S. Також зустрічав у мережі інформацію, що робота <code>set.seed()</code> для <code>R</code> у <code>4+</code> версії може відрізнятися від <code>3+</code>. Після перевірки інформації оновлю даний текст.</em></p>
+</div>
+<p>Обчислення та виведення на консоль інформації про суму та середнє значення:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="chapter1.html#cb25-1" aria-hidden="true" tabindex="-1"></a>vtr_sum <span class="ot">&lt;-</span> <span class="fu">sum</span>(vtr)</span>
+<span id="cb25-2"><a href="chapter1.html#cb25-2" aria-hidden="true" tabindex="-1"></a>vtr_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(vtr)</span>
+<span id="cb25-3"><a href="chapter1.html#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="chapter1.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;Sum: &quot;</span>, vtr_sum))</span></code></pre></div>
+<pre><code>## [1] &quot;Sum: 58&quot;</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="chapter1.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;Mean: &quot;</span>, vtr_mean))</span></code></pre></div>
+<pre><code>## [1] &quot;Mean: 2.9&quot;</code></pre>
+<p>Виведемо гістограму:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="chapter1.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(vtr, <span class="at">breaks =</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-22"></span>
+<img src="01-chapter1_files/figure-html/unnamed-chunk-22-1.png" alt="Приклад візуалізації гістрограми в R" width="672" />
+<p class="caption">
+Рис. 1.14: Приклад візуалізації гістрограми в R
+</p>
+</div>
+<p><em>Примітка. Детальніше про параметри функції <code>hist()</code> можна почитати тут: <a href="https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/hist">https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/hist</a></em>.</p>
+<p>Орієнтовний вигляд вікна <code>RStudio</code> після викоання усіх описаних вище операцій матиме настпуний вигляд:</p>
+<div class="figure"><span id="fig:unnamed-chunk-23"></span>
+<img src="images/chapter1/rstudio_10.png" alt="RStudio Desktop. Перегляд змінних"  />
+<p class="caption">
+Рис. 1.15: RStudio Desktop. Перегляд змінних
+</p>
+</div>
+<p>Варто звернути увагу на виділений блок <code>Environment</code>, де можна переглянути усі доступні змінні, що є на даний момент у <code>пам'яті</code>. До цих параметрів можна звертатися у коді чи з консолі у будь, який момент. <em>Детальну інформацію про робоче середовище розглянуто нижче.</em></p>
+</div>
+</div>
+<div id="chapter133" class="section level3" number="1.3.3">
+<h3><span class="header-section-number">1.3.3</span> Робота з Jupyter Notebook</h3>
+<p>Ноутбуки стали зручним та поширеним інструментом для аналізу даних, а також послідовного викладення матеріалів чи результатів дослідження. Перевагою такого інструменту є перемішування коду, результатів його виконання та іншого текстового наповнення, що дозволяє сформувати “на льоту” готові до читання документи.</p>
+<p>_*Примітка. Лекційні матеріали даного курсу виконані саме у ноутбуках._</p>
+<p>Використання ноутбуків у навчальному процесі дозволяє описати не лише теоретичний матеріал, але приклади коду, що будуть виконувати безпосередньо під час ознайомлення з лекцією. Також слухач курсу може відредагувати наявний код та перевірити результати його виконання.</p>
+<p>Розгялнемо процес інсталяції та запуску <code>Anaconda</code> (середовище з відкритим кодом для вирішення задач <code>Data Science</code>) та <code>Jupyter Notebook</code> на ПК.</p>
+<p>Для встановлення середовища <code>Anaconda</code> потрібно перейти на сайт проекту та завантажити індивідуальну версію продукту: <a href="https://www.anaconda.com/products/individual" class="uri">https://www.anaconda.com/products/individual</a> <span class="citation">(<a href="#ref-Anaconda-site" role="doc-biblioref"><em>Anaconda. The World’s Most Popular Data Science Platform</em> 2021</a>)</span>.</p>
+<p>_*Примітка. Усі операції у даному курсі виконуються під операційну систему <code>Windows 10 Education</code>_.</p>
+<p>Процес інсталяції середовища Anaconda не відрізняється від стандарного покрокового вставнолення програм у <code>Windows</code>.</p>
+<p>Після запуску <code>Anaconda Navigator</code> для початку потрібно створити нове середовище та налаштувати роботу <code>R</code>:</p>
+<div class="figure">
+<img src="images/chapter1/anaconda_1.png" alt="" />
+<p class="caption">Anaconda</p>
+</div>
+<p>Для початку потрібно перейти на вкладку <code>Environments</code> та натиснути <code>Create</code>:</p>
+<div class="figure"><span id="fig:unnamed-chunk-24"></span>
+<img src="images/chapter1/anaconda_2.png" alt="Anaconda. Головне вікно"  />
+<p class="caption">
+Рис. 1.16: Anaconda. Головне вікно
+</p>
+</div>
+<p>У вікні, що відкрилося потрібно відмітити [x] вставновлення інструментів для роботи з <code>R</code>:</p>
+<div class="figure"><span id="fig:unnamed-chunk-25"></span>
+<img src="images/chapter1/anaconda_3.png" alt="Anaconda. Створення нового середовища на основі R"  />
+<p class="caption">
+Рис. 1.17: Anaconda. Створення нового середовища на основі R
+</p>
+</div>
+<p>Після встановлення R-інструментів оптрібно переключитися на вкладку <code>Home</code> та робочий простір:</p>
+<div class="figure"><span id="fig:unnamed-chunk-26"></span>
+<img src="images/chapter1/anaconda_4.png" alt="Anaconda. Зміна середовища"  />
+<p class="caption">
+Рис. 1.18: Anaconda. Зміна середовища
+</p>
+</div>
+<p>Після завантаження робочого простору оберіть <code>Launch</code> для запуску <code>Jupyter Notebook</code> з переліку встановлених засобів. <code>Jupyter Notebook</code> буде запущено у браузері за замовчеванням Вашого ПК. Відкрити ноутбук можна обравши потрібний файл, а створити новий у меню справа <code>New</code> &gt; <code>Notebook</code> &gt; <code>R</code>:</p>
+<div class="figure"><span id="fig:unnamed-chunk-27"></span>
+<img src="images/chapter1/anaconda_6.png" alt="Jupyter Notebook. Створення нового ноутбука"  />
+<p class="caption">
+Рис. 1.19: Jupyter Notebook. Створення нового ноутбука
+</p>
+</div>
+</div>
+<div id="chapter134" class="section level3" number="1.3.4">
+<h3><span class="header-section-number">1.3.4</span> Огляд додаткових IDE та сервісів для роботи з R</h3>
+<p>Окрім середовищ описаних вище існує ряд досить цікавих інструментів, що роблять досить зручною роботу з <code>R</code>-кодом. Розглянемо ці інструменти.</p>
+<p><strong>Visual Studio Code</strong> - безкоштовний редактор коду від <code>Microsoft</code>, орієнтовний на велику кількість мов програмування та фреймворків <span class="citation">(<a href="#ref-vs-code" role="doc-biblioref"><em>Visual Studio Code</em> 2021</a>)</span>. Серед інших іструментів у VS Code доступні також розширення для роботи з <code>R</code>:</p>
+<div class="figure"><span id="fig:unnamed-chunk-28"></span>
+<img src="images/chapter1/vs_code.png" alt="Visual Studio Code. Інсталяція RTools"  />
+<p class="caption">
+Рис. 1.20: Visual Studio Code. Інсталяція RTools
+</p>
+</div>
+<p><strong>Visual Studio Community Edition</strong> - безкоштовне середовище розробки від компаній Microsoft. VS створено з самого початку для розробки під платформу .NET та мови програмування C#, VB.NET, F# тощо, але з часом отримало багато розширень, що дозволяють у тому числі, працювати і з проектами в <code>R</code> <span class="citation">(<a href="#ref-visual-studio" role="doc-biblioref"><em>Visual Studio Community Edition</em> 2021</a>)</span>.</p>
+<p><strong>Google Collab</strong> - онлайн сервіс для роботи з ноутбуками для <code>Data Science</code> від компанії <code>Google</code> <span class="citation">(<a href="#ref-google-collab" role="doc-biblioref"><em>Google Colaboratory</em> 2021</a>)</span>:</p>
+<div class="figure"><span id="fig:unnamed-chunk-29"></span>
+<img src="images/chapter1/google_collab.png" alt="Google Collab"  />
+<p class="caption">
+Рис. 1.21: Google Collab
+</p>
+</div>
+<p><em>Примітка. Код у прикладі вище написаний на <code>Python</code>.</em></p>
+<p><a href="https://kaggle.com"><strong>kaggle.com</strong></a> - сервіс для змагань з <code>Data Science</code> та <code>Machine Learning</code>. Окрім переліку змагань, наборів даних сервіс має досить зручні ноутбуки.</p>
+<div class="figure"><span id="fig:unnamed-chunk-30"></span>
+<img src="images/chapter1/kaggle.png" alt="Kaggle.com"  />
+<p class="caption">
+Рис. 1.22: Kaggle.com
+</p>
+</div>
+<p>Загалом сервісів та середовищ для розробки в <code>R</code> існує досить багато і їх кількість зростає, але це не впливає на принципи написання коду та роботу з даними.</p>
+<hr />
+</div>
+</div>
+<div id="chapter14" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Основи роботи з пакетами в R</h2>
+<div id="chapter141" class="section level3" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Команди для роботи з пакетами</h3>
+<p>Своєю популярністю <code>R</code> завдячує, у тому числі, і можливості швидко реалізувати досить складні дослідження за допомогою наборів уже готових функції. Такі функції обєднуються у пакети та публікуються вченими, досліджниками та розробниками зі всього світу.</p>
+<p><strong>Пакети в R</strong> - організовані набори методів та класів для виконання вузького набору задач під час програмування на <code>R</code>. Вони містять як функції так і опис способів їх використання, а чтакож дані для відтворення прикладів коду.</p>
+<p>Пакети можуть бути завантажені з офіційного сайту проекту <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">cran.r-project.org</a> / <span class="citation">(<a href="#ref-R-base" role="doc-biblioref">R Core Team 2020</a>)</span> або інших джерел (dev-версії є доступні на <code>github</code>). Завантаження пакетів у <code>R</code> можна здійснювати як з локального диска, так і з серверів у мережі інтернет.</p>
+<p>Для встановлення пакету використовується команда <strong><code>install.packages()</code></strong>:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="chapter1.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;fun&quot;</span>)</span></code></pre></div>
+<p>Для підключення пакету та його використання варто скористатися <code>library()</code>:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="chapter1.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">packageDescription</span>(<span class="st">&quot;fun&quot;</span>)</span>
+<span id="cb31-2"><a href="chapter1.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="at">package =</span> <span class="st">&quot;fun&quot;</span>)</span></code></pre></div>
+<br>
+<div class="alert alert-success">
+<p><i class="fas fa-book fa-2x fa-alert"></i>
+Дуже рекомендую почитати детальніше про пакети у статті на <code>DataCamp</code>:
+<a href="https://www.datacamp.com/community/tutorials/r-packages-guide" target="_balnk">R Packages: A Beginner’s Guide</a>.</p>
+</div>
+</div>
+<div id="chapter142" class="section level3" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> Робота з пакетами в RStudio</h3>
+<p>Робота з пакетами в RStudio організована досить зручно і дозволяє швидко переглянути інформацію про пакет та функції, які він дозволяє використати.</p>
+<p>Для інсталяції та оновлення пакетів можна скористатися меню <code>Tools</code>:</p>
+<div class="figure"><span id="fig:unnamed-chunk-31"></span>
+<img src="images/chapter1/packages_1.png" alt="RStudio Desktop. Меню інсталяції пакетів"  />
+<p class="caption">
+Рис. 1.23: RStudio Desktop. Меню інсталяції пакетів
+</p>
+</div>
+<p>Після вибору <code>Install Packages...</code> відкриється вікно, де можна обрати як джерело інсталяції пакету так і сам пакет з переліку, ввівши кілька перших букв його назви:</p>
+<div class="figure"><span id="fig:unnamed-chunk-32"></span>
+<img src="images/chapter1/packages_2.png" alt="RStudio Desktop. Вибір пакету для інсталяції"  />
+<p class="caption">
+Рис. 1.24: RStudio Desktop. Вибір пакету для інсталяції
+</p>
+</div>
+<p><code>RStudio</code> дозволяє також переглянути інстальовані пакети/бібліотеки, розроблені іншими користувачами та завантажені у пам’ять (“галочка” навпроти назви пакету):</p>
+<div class="figure"><span id="fig:unnamed-chunk-33"></span>
+<img src="images/chapter1/packages_3.png" alt="RStudio Desktop. Перегляд інстальованих пакетів"  />
+<p class="caption">
+Рис. 1.25: RStudio Desktop. Перегляд інстальованих пакетів
+</p>
+</div>
+<p>Доступ до функцій та інших елементів пакету можна здійснювати використавши запис <code>назва_пакету::назва_функції()</code> без підключення бібліотеки за допомогою <code>library()</code>:</p>
+<div class="figure"><span id="fig:unnamed-chunk-34"></span>
+<img src="images/chapter1/packages_4.png" alt="RStudio Desktop. Приклад використання пакету `fun`"  />
+<p class="caption">
+Рис. 1.26: RStudio Desktop. Приклад використання пакету <code>fun</code>
+</p>
+</div>
+<p>Користувачі можуть не тільки завантажувати існуючі пакети,але істворювати власні та роботи їх доступними для дослідників зі всього світу.</p>
+
+</div>
+</div>
+</div>
+<h3>Джeрела</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Anaconda-site" class="csl-entry">
+<em>Anaconda. The World’s Most Popular Data Science Platform</em>. 2021. 206 379 Broadway Ave., Suite 310 New York, NY 10013, USA: Anaconda Inc. <a href="https://www.anaconda.com/">https://www.anaconda.com/</a>.
+</div>
+<div id="ref-google-collab" class="csl-entry">
+<em>Google Colaboratory</em>. 2021. Google LLC. <a href="https://colab.research.google.com/">https://colab.research.google.com/</a>.
+</div>
+<div id="ref-R-base" class="csl-entry">
+R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-R-studio-site" class="csl-entry">
+<em>RStudio Official Website</em>. 2021. 250 Northern Ave, Boston, MA 02210: RStudio, PBC. <a href="https://rstudio.com/">https://rstudio.com/</a>.
+</div>
+<div id="ref-vs-code" class="csl-entry">
+<em>Visual Studio Code</em>. 2021. Microsoft. <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a>.
+</div>
+<div id="ref-visual-studio" class="csl-entry">
+<em>Visual Studio Community Edition</em>. 2021. Microsoft. <a href="https://visualstudio.microsoft.com/">https://visualstudio.microsoft.com/</a>.
+</div>
+<div id="ref-R-stats-book" class="csl-entry">
+А.Б. Шипунов, Е.М. Балдин, П.А. Волкова, А.И. Коробейников, С.А. Назарова, С.В. Петров, В.Г. Суфиянов. 2012. <em>Наглядная статистика. Используем r!</em> Москва, Росія: ДМК Пресс.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chapter2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["r-science.pdf"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

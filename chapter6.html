@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Розділ 5 Приклади задач та їх розв’язки | Основи роботи з даними у R</title>
+  <meta name="description" content="Курс вступ до програмування в R, Проект DataClass" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Розділ 5 Приклади задач та їх розв’язки | Основи роботи з даними у R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="/images/cover.png" />
+  <meta property="og:description" content="Курс вступ до програмування в R, Проект DataClass" />
+  <meta name="github-repo" content="kleban/r-science-pub" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Розділ 5 Приклади задач та їх розв’язки | Основи роботи з даними у R" />
+  
+  <meta name="twitter:description" content="Курс вступ до програмування в R, Проект DataClass" />
+  <meta name="twitter:image" content="/images/cover.png" />
+
+<meta name="author" content="Юрій Клебан" />
+
+
+<meta name="date" content="2021-05-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="prev" href="chapter4.html"/>
+<link rel="next" href="-e-.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SQNMJRY3XS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SQNMJRY3XS');
+</script>
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="https:/use.fontawesome.com/releases/v5.15.2/css/all.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a  style="margin: 7px 0 5px 0;padding:0" href="https://dataclass.org.ua" target="_blank"><img src="https://dataclass.org.ua/assets/template/images/dataclass_logo.png"></a><a href="./" style="font-weight:600; font-size:18px; padding:0">Вступ до R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Загальна інформація</a></li>
+<li class="chapter" data-level="1" data-path="chapter1.html"><a href="chapter1.html"><i class="fa fa-check"></i><b>1</b> Вступ до курсу</a>
+<ul>
+<li class="chapter" data-level="" data-path="chapter1.html"><a href="chapter1.html#план"><i class="fa fa-check"></i>План</a></li>
+<li class="chapter" data-level="1.1" data-path="chapter1.html"><a href="chapter1.html#chapter11"><i class="fa fa-check"></i><b>1.1</b> Що таке R?</a></li>
+<li class="chapter" data-level="1.2" data-path="chapter1.html"><a href="chapter1.html#chapter12"><i class="fa fa-check"></i><b>1.2</b> Історія створення R</a></li>
+<li class="chapter" data-level="1.3" data-path="chapter1.html"><a href="chapter1.html#chapter13"><i class="fa fa-check"></i><b>1.3</b> Основи роботи з R</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="chapter1.html"><a href="chapter1.html#chapter131"><i class="fa fa-check"></i><b>1.3.1</b> R Project</a></li>
+<li class="chapter" data-level="1.3.2" data-path="chapter1.html"><a href="chapter1.html#chapter132"><i class="fa fa-check"></i><b>1.3.2</b> Робота з R Studio</a></li>
+<li class="chapter" data-level="1.3.3" data-path="chapter1.html"><a href="chapter1.html#chapter133"><i class="fa fa-check"></i><b>1.3.3</b> Робота з Jupyter Notebook</a></li>
+<li class="chapter" data-level="1.3.4" data-path="chapter1.html"><a href="chapter1.html#chapter134"><i class="fa fa-check"></i><b>1.3.4</b> Огляд додаткових IDE та сервісів для роботи з R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="chapter1.html"><a href="chapter1.html#chapter14"><i class="fa fa-check"></i><b>1.4</b> Основи роботи з пакетами в R</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="chapter1.html"><a href="chapter1.html#chapter141"><i class="fa fa-check"></i><b>1.4.1</b> Команди для роботи з пакетами</a></li>
+<li class="chapter" data-level="1.4.2" data-path="chapter1.html"><a href="chapter1.html#chapter142"><i class="fa fa-check"></i><b>1.4.2</b> Робота з пакетами в RStudio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chapter2.html"><a href="chapter2.html"><i class="fa fa-check"></i><b>2</b> Базові конструкції мови R</a>
+<ul>
+<li class="chapter" data-level="" data-path="chapter2.html"><a href="chapter2.html#план-1"><i class="fa fa-check"></i>План</a></li>
+<li class="chapter" data-level="2.1" data-path="chapter2.html"><a href="chapter2.html#chapter21"><i class="fa fa-check"></i><b>2.1</b> Оголошення та ініціалізація змінних</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="chapter2.html"><a href="chapter2.html#chapter211"><i class="fa fa-check"></i><b>2.1.1</b> Поняття змінних та оператор присвоєння</a></li>
+<li class="chapter" data-level="2.1.2" data-path="chapter2.html"><a href="chapter2.html#chapter212"><i class="fa fa-check"></i><b>2.1.2</b> Правила іменування змінних</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="chapter2.html"><a href="chapter2.html#chapter22"><i class="fa fa-check"></i><b>2.2</b> Базові типи даних</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="chapter2.html"><a href="chapter2.html#chapter221"><i class="fa fa-check"></i><b>2.2.1</b> Типізація в R</a></li>
+<li class="chapter" data-level="2.2.2" data-path="chapter2.html"><a href="chapter2.html#chapter222"><i class="fa fa-check"></i><b>2.2.2</b> Перевірка та привдення типів даних</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="chapter2.html"><a href="chapter2.html#chapter23"><i class="fa fa-check"></i><b>2.3</b> Оператори</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="chapter2.html"><a href="chapter2.html#chapter231"><i class="fa fa-check"></i><b>2.3.1</b> Арифметичні оператори</a></li>
+<li class="chapter" data-level="2.3.2" data-path="chapter2.html"><a href="chapter2.html#chapter232"><i class="fa fa-check"></i><b>2.3.2</b> Оператори відношення</a></li>
+<li class="chapter" data-level="2.3.3" data-path="chapter2.html"><a href="chapter2.html#chapter233"><i class="fa fa-check"></i><b>2.3.3</b> Логічні оператори</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="chapter2.html"><a href="chapter2.html#chapter24"><i class="fa fa-check"></i><b>2.4</b> Корисні математичні функції</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="chapter2.html"><a href="chapter2.html#chapter241"><i class="fa fa-check"></i><b>2.4.1</b> Заокруглення чисел (round, ceiling, floor, trunc, signif)</a></li>
+<li class="chapter" data-level="2.4.2" data-path="chapter2.html"><a href="chapter2.html#chapter242"><i class="fa fa-check"></i><b>2.4.2</b> Послідовності чисел (seq, rep)</a></li>
+<li class="chapter" data-level="2.4.3" data-path="chapter2.html"><a href="chapter2.html#chapter243"><i class="fa fa-check"></i><b>2.4.3</b> Генерація псевдовипадкових чисел</a></li>
+<li class="chapter" data-level="2.4.4" data-path="chapter2.html"><a href="chapter2.html#chapter244"><i class="fa fa-check"></i><b>2.4.4</b> Інші математичні функції та константи R</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="chapter2.html"><a href="chapter2.html#chapter245"><i class="fa fa-check"></i><b>2.5</b> Введення-виведння даних</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chapter3.html"><a href="chapter3.html"><i class="fa fa-check"></i><b>3</b> Основи роботи з даними в R</a>
+<ul>
+<li class="chapter" data-level="" data-path="chapter3.html"><a href="chapter3.html#план-2"><i class="fa fa-check"></i>План</a></li>
+<li class="chapter" data-level="3.1" data-path="chapter3.html"><a href="chapter3.html#chapter31"><i class="fa fa-check"></i><b>3.1</b> Набори даних</a></li>
+<li class="chapter" data-level="3.2" data-path="chapter3.html"><a href="chapter3.html#chapter32"><i class="fa fa-check"></i><b>3.2</b> Вектори (vectors)</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="chapter3.html"><a href="chapter3.html#chapter321"><i class="fa fa-check"></i><b>3.2.1</b> Поняття та спосіб представлення</a></li>
+<li class="chapter" data-level="3.2.2" data-path="chapter3.html"><a href="chapter3.html#chapter322"><i class="fa fa-check"></i><b>3.2.2</b> Оголошення векторів</a></li>
+<li class="chapter" data-level="3.2.3" data-path="chapter3.html"><a href="chapter3.html#chapter323"><i class="fa fa-check"></i><b>3.2.3</b> Операції над векторами</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chapter4.html"><a href="chapter4.html"><i class="fa fa-check"></i><b>4</b> Читання та запис даних у R</a>
+<ul>
+<li class="chapter" data-level="" data-path="chapter4.html"><a href="chapter4.html#план-3"><i class="fa fa-check"></i>План</a></li>
+<li class="chapter" data-level="4.1" data-path="chapter4.html"><a href="chapter4.html#chapter41"><i class="fa fa-check"></i><b>4.1</b> Загальний опис структури даних</a></li>
+<li class="chapter" data-level="4.2" data-path="chapter4.html"><a href="chapter4.html#chapter42"><i class="fa fa-check"></i><b>4.2</b> Опис набору даних <code>Telecom Users</code></a></li>
+<li class="chapter" data-level="4.3" data-path="chapter3.html"><a href="chapter3.html#chapter321"><i class="fa fa-check"></i><b>4.3</b> Імпорт даних засобами RStudio</a></li>
+<li class="chapter" data-level="4.4" data-path="chapter3.html"><a href="chapter3.html#chapter321"><i class="fa fa-check"></i><b>4.4</b> CSV-файли: читання,</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chapter6.html"><a href="chapter6.html"><i class="fa fa-check"></i><b>5</b> Приклади задач та їх розв’язки</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chapter6.html"><a href="chapter6.html#chapter61"><i class="fa fa-check"></i><b>5.1</b> Задачі</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="chapter6.html"><a href="chapter6.html#chapter611"><i class="fa fa-check"></i><b>5.1.1</b> Послідовності</a></li>
+<li class="chapter" data-level="5.1.2" data-path="chapter6.html"><a href="chapter6.html#chapter612"><i class="fa fa-check"></i><b>5.1.2</b> Функції</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="chapter6.html"><a href="chapter6.html#chapter62"><i class="fa fa-check"></i><b>5.2</b> Рішення задач</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="chapter6.html"><a href="chapter6.html#chapter621"><i class="fa fa-check"></i><b>5.2.1</b> Послідовності та вектори</a></li>
+<li class="chapter" data-level="5.2.2" data-path="chapter6.html"><a href="chapter6.html#chapter622"><i class="fa fa-check"></i><b>5.2.2</b> Функції</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="-e-.html"><a href="-e-.html"><i class="fa fa-check"></i>Джeрела</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Створено з bookdown</a></li>
+<li><a href="https://dataclass.org.ua" target="blank">Сайт проекту DataCalss</a></li>  
+<li><a href="https://github.com/kleban/r-intro-pub/issues" style="color:#e53b49" target="blank"><i class="fas fa-bug"></i> Знайшли помилку?</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Основи роботи з даними у R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chapter6" class="section level1" number="5">
+<h1><span class="header-section-number">Розділ 5</span> Приклади задач та їх розв’язки</h1>
+<hr />
+<ul>
+<li><a href="chapter6.html#chapter61">Задачі</a>
+<ul>
+<li><a href="chapter6.html#chapter611">Послідовності та вектори</a></li>
+<li><a href="chapter6.html#chapter612">Функції</a></li>
+</ul></li>
+<li><a href="chapter6.html#chapter62">Рішення задач</a>
+<ul>
+<li><a href="chapter6.html#chapter621">Послідовності та вектори</a></li>
+<li><a href="chapter6.html#chapter622">Функції</a></li>
+</ul></li>
+</ul>
+<hr />
+<div id="chapter61" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Задачі</h2>
+<div id="chapter611" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Послідовності</h3>
+<div id="task6111" class="section level4" number="5.1.1.1">
+<h4><span class="header-section-number">5.1.1.1</span> Задача</h4>
+<p>Написати програму, що обчислює <span class="math inline">\(y = (x+2)^2 + ln(x)\)</span>, де <span class="math inline">\(x\)</span> число з послідовності <code>100, 105, 110, ..., 200</code>. Результат вивести у вигляді <code>data.fame</code> з колонками <span class="math inline">\(X\)</span> та <span class="math inline">\(Y\)</span>.</p>
+</div>
+<div id="task6112" class="section level4" number="5.1.1.2">
+<h4><span class="header-section-number">5.1.1.2</span> Задача</h4>
+<p>Написати програму, що обчислює <span class="math inline">\(y = \frac{\sqrt{x+2}}{z}\)</span>, де <span class="math inline">\(x\)</span> число з послідовності <code>10, 15, 20, ..., 100</code>, а <span class="math inline">\(z\)</span> - випадкові значення з діапазону <code>[-10, 10]</code>, що відповідає кількості елементів у <span class="math inline">\(x\)</span>. Результат вивести у вигляді <code>data.fame</code> з колонками <span class="math inline">\(X\)</span>, <span class="math inline">\(Z\)</span> та <span class="math inline">\(Y\)</span>.</p>
+</div>
+<div id="task6113" class="section level4" number="5.1.1.3">
+<h4><span class="header-section-number">5.1.1.3</span> Задача</h4>
+<p>Без використання спеціальних функцій написати програму, що сортує вектор за зростанням та спаданням. Елементи вектора є випадковими числами з діапазону <code>[10,100)</code>. Кількість елементів у векторі <code>10</code>.</p>
+</div>
+<div id="task6114" class="section level4" number="5.1.1.4">
+<h4><span class="header-section-number">5.1.1.4</span> Задача</h4>
+<p>Відсортувати вектор таким чином, щоб всі додатні елементи знаходилися на початку, а всі від’ємні – вкінці, і при цьому зберігся початковий порядок елементів в обох групах. Елементи вектора є випадковими числами з діапазону <code>[-100,100]</code>. Кількість елементів у векторі <code>10</code>.</p>
+<p>Наприклад, якщо початковий вектор <code>x</code> складається з елементів:</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="chapter6.html#cb157-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">10</span>, <span class="sc">-</span><span class="dv">8</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="sc">-</span><span class="dv">9</span>)</span></code></pre></div>
+<p>то після “сортування” він матиме вигляд:</p>
+<pre><code>## [1]  1 10  5  4 -5 -8 -2 -9</code></pre>
+</div>
+<div id="task6115" class="section level4" number="5.1.1.5">
+<h4><span class="header-section-number">5.1.1.5</span> Задача</h4>
+<p>Задано натуральне число <span class="math inline">\(N\)</span> (вводиться з клавіатури). Знайти суму його цифр.</p>
+</div>
+<div id="task6116" class="section level4" number="5.1.1.6">
+<h4><span class="header-section-number">5.1.1.6</span> Задача</h4>
+<p>Задано одновимірний масив. Знайти два серед його елементів, модуль різниці яких має
+найменше значення.</p>
+</div>
+<div id="task6117" class="section level4" number="5.1.1.7">
+<h4><span class="header-section-number">5.1.1.7</span> Задача</h4>
+<p>Знайти найбільший спільний дільник двох натуральних чисел, використавши алгоритм
+Евкліда. Алгоритм Евкліда полягає в наступному: від більшого числа віднімається менше до тих пір,
+поки вони не стануть рівними; отримане в результаті число і буде найбільшим спільним дільником.</p>
+</div>
+<div id="task6118" class="section level4" number="5.1.1.8">
+<h4><span class="header-section-number">5.1.1.8</span> Задача</h4>
+<p>Знайти мінімальний елемент серед тих елементів масиву <span class="math inline">\(A\)</span>, які не є елементами масиву <span class="math inline">\(B\)</span>.</p>
+</div>
+<div id="task6119" class="section level4" number="5.1.1.9">
+<h4><span class="header-section-number">5.1.1.9</span> Задача</h4>
+<p>Написати програму, що обчислює <strong>середнє</strong> значення серед парних елементів вектора. Елементи вектора генеруються випадковим чином у діапазоні <span class="math inline">\([1; 10)\)</span>. Кількість елментів вектора <code>10</code>.</p>
+</div>
+<div id="task6120" class="section level4" number="5.1.1.10">
+<h4><span class="header-section-number">5.1.1.10</span> Задача</h4>
+<p>Написати програму, що знаходить середнє значення елементів вектора. Елементи вектора генеруються випадковим чином у діапазоні <span class="math inline">\([100; 200]\)</span>. Усі елменти вектора повинні бути кратними <span class="math inline">\(7\)</span>-ми.</p>
+<p>Підзавдання 1. Генерацію випадкового числа кратного <span class="math inline">\(7\)</span>-ми винести в окрему функцію.</p>
+<p>Підзавдання 2. Написати функцію, що приймає 1 значення size (довжина вектора) і повертає вектор цієї довжини.</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="chapter6.html#cb159-1" aria-hidden="true" tabindex="-1"></a>func.genMod7 <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb159-2"><a href="chapter6.html#cb159-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="dv">8</span></span>
+<span id="cb159-3"><a href="chapter6.html#cb159-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span>(x <span class="sc">%%</span> <span class="dv">7</span> <span class="sc">!=</span> <span class="dv">0</span>) {</span>
+<span id="cb159-4"><a href="chapter6.html#cb159-4" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">100</span><span class="sc">:</span><span class="dv">200</span>, <span class="at">size =</span> <span class="dv">1</span>)</span>
+<span id="cb159-5"><a href="chapter6.html#cb159-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb159-6"><a href="chapter6.html#cb159-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x)</span>
+<span id="cb159-7"><a href="chapter6.html#cb159-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb159-8"><a href="chapter6.html#cb159-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-9"><a href="chapter6.html#cb159-9" aria-hidden="true" tabindex="-1"></a>func.genVectorMod7 <span class="ot">&lt;-</span> <span class="cf">function</span>(size) {</span>
+<span id="cb159-10"><a href="chapter6.html#cb159-10" aria-hidden="true" tabindex="-1"></a>  v <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb159-11"><a href="chapter6.html#cb159-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb159-12"><a href="chapter6.html#cb159-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>size) {</span>
+<span id="cb159-13"><a href="chapter6.html#cb159-13" aria-hidden="true" tabindex="-1"></a>    v <span class="ot">&lt;-</span> <span class="fu">c</span>(v, <span class="fu">func.genMod7</span>())</span>
+<span id="cb159-14"><a href="chapter6.html#cb159-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb159-15"><a href="chapter6.html#cb159-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb159-16"><a href="chapter6.html#cb159-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(v)</span>
+<span id="cb159-17"><a href="chapter6.html#cb159-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb159-18"><a href="chapter6.html#cb159-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-19"><a href="chapter6.html#cb159-19" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">func.genVectorMod7</span>(<span class="dv">100</span>)</span>
+<span id="cb159-20"><a href="chapter6.html#cb159-20" aria-hidden="true" tabindex="-1"></a>vector</span></code></pre></div>
+<pre><code>##   [1] 140 147 168 140 189 154 112 154 154 189 175 133 140 140 140 189 140 161
+##  [19] 140 126 154 168 126 126 182 147 196 140 154 112 105 147 189 140 147 147
+##  [37] 189 175 105 112 196 196 126 154 140 154 105 196 175 119 126 196 133 161
+##  [55] 126 140 182 196 189 133 147 147 168 189 196 161 112 196 154 196 196 196
+##  [73] 161 133 182 105 154 140 182 168 168 154 196 147 182 140 189 133 161 112
+##  [91] 161 112 182 161 140 154 161 119 182 147</code></pre>
+</div>
+<div id="task6121" class="section level4" number="5.1.1.11">
+<h4><span class="header-section-number">5.1.1.11</span> Задача</h4>
+<p>Написати програму, що знаходить різницю між максимальним та мінімальним значенням елементів вектора, не використовуючи функції <code>min()</code> та <code>max()</code>. Елементи вектора генеруються випадковим чином у діапазоні <span class="math inline">\([10;50]\)</span>.</p>
+</div>
+<div id="task61211" class="section level4" number="5.1.1.12">
+<h4><span class="header-section-number">5.1.1.12</span> Задача</h4>
+<p>Написати програму, що знаходить різницю між максимальним та мінімальним значенням елементів вектора, не використовуючи функції <code>min()</code> та <code>max()</code>. Елементи вектора генеруються випадковим чином у діапазоні <span class="math inline">\([10;50]\)</span>.</p>
+</div>
+<div id="task6122" class="section level4" number="5.1.1.13">
+<h4><span class="header-section-number">5.1.1.13</span> Задача*</h4>
+<p>Написати програму, що дозволяє переставити значення деяких змінних без створення третьої змінної.</p>
+<p>Наприклад, <code>a &lt;- 10</code> та <code>b &lt;- 25</code>, але після виконання деякого коду виведення має наступний вигляд:</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="chapter6.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(a)</span></code></pre></div>
+<pre><code>## [1] 25</code></pre>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="chapter6.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(b)</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+</div>
+<div id="task6123" class="section level4" number="5.1.1.14">
+<h4><span class="header-section-number">5.1.1.14</span> Задача</h4>
+<p>Написати функцію, що…</p>
+</div>
+<div id="task6124" class="section level4" number="5.1.1.15">
+<h4><span class="header-section-number">5.1.1.15</span> Задача</h4>
+<p>Завантажити з сайту kaggle.com інформацію про “індекс щастя” (<a href="https://www.kaggle.com/ajaypalsinghlo/world-happiness-report-2021">https://www.kaggle.com/ajaypalsinghlo/world-happiness-report-2021</a>). Завантажити дані в R.</p>
+</div>
+</div>
+<div id="chapter612" class="section level3" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Функції</h3>
+<div id="task612" class="section level4" number="5.1.2.1">
+<h4><span class="header-section-number">5.1.2.1</span> Задача</h4>
+<p>Написати функцію, що обчислює для поданого вектора суму, середнє, медіану, мінімум та максимум. Результат роботи функції повертається у вигляді списку (<code>list</code>).</p>
+</div>
+</div>
+</div>
+<div id="chapter62" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Рішення задач</h2>
+<div id="chapter621" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Послідовності та вектори</h3>
+<p>Рішення до <a href="chapter6.html#task6113">задачі 6.1.1.<strong>3</strong></a>:</p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="chapter6.html#cb165-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">size =</span> <span class="dv">10</span>)</span>
+<span id="cb165-2"><a href="chapter6.html#cb165-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb165-3"><a href="chapter6.html#cb165-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(x)<span class="sc">-</span><span class="dv">1</span>)) {</span>
+<span id="cb165-4"><a href="chapter6.html#cb165-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb165-5"><a href="chapter6.html#cb165-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(x)<span class="sc">-</span><span class="dv">1</span>)) {</span>
+<span id="cb165-6"><a href="chapter6.html#cb165-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb165-7"><a href="chapter6.html#cb165-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(x[i] <span class="sc">&gt;</span> x[i<span class="sc">+</span><span class="dv">1</span>]) {</span>
+<span id="cb165-8"><a href="chapter6.html#cb165-8" aria-hidden="true" tabindex="-1"></a>      tmp <span class="ot">=</span> x[i]</span>
+<span id="cb165-9"><a href="chapter6.html#cb165-9" aria-hidden="true" tabindex="-1"></a>      x[i] <span class="ot">=</span> x[i<span class="sc">+</span><span class="dv">1</span>]</span>
+<span id="cb165-10"><a href="chapter6.html#cb165-10" aria-hidden="true" tabindex="-1"></a>      x[i<span class="sc">+</span><span class="dv">1</span>] <span class="ot">=</span> tmp</span>
+<span id="cb165-11"><a href="chapter6.html#cb165-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb165-12"><a href="chapter6.html#cb165-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb165-13"><a href="chapter6.html#cb165-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb165-14"><a href="chapter6.html#cb165-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-15"><a href="chapter6.html#cb165-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<pre><code>##  [1] 17 19 42 46 49 51 56 62 73 87</code></pre>
+<hr />
+<p>Рішення до <a href="chapter6.html#task6114">задачі 6.1.1.<strong>4</strong></a>:</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="chapter6.html#cb167-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="sc">-</span><span class="dv">100</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">size =</span> <span class="dv">10</span>)</span>
+<span id="cb167-2"><a href="chapter6.html#cb167-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Vector before sort:&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Vector before sort:&quot;</code></pre>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="chapter6.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<pre><code>##  [1]  -9  68  59  47  11  16  -8 -88  94  55</code></pre>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="chapter6.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(x)<span class="sc">-</span><span class="dv">1</span>)) {</span>
+<span id="cb171-2"><a href="chapter6.html#cb171-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb171-3"><a href="chapter6.html#cb171-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(x)<span class="sc">-</span><span class="dv">1</span>)) {</span>
+<span id="cb171-4"><a href="chapter6.html#cb171-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb171-5"><a href="chapter6.html#cb171-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(x[i] <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> x[i<span class="sc">+</span><span class="dv">1</span>] <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb171-6"><a href="chapter6.html#cb171-6" aria-hidden="true" tabindex="-1"></a>      tmp <span class="ot">=</span> x[i]</span>
+<span id="cb171-7"><a href="chapter6.html#cb171-7" aria-hidden="true" tabindex="-1"></a>      x[i] <span class="ot">=</span> x[i<span class="sc">+</span><span class="dv">1</span>]</span>
+<span id="cb171-8"><a href="chapter6.html#cb171-8" aria-hidden="true" tabindex="-1"></a>      x[i<span class="sc">+</span><span class="dv">1</span>] <span class="ot">=</span> tmp</span>
+<span id="cb171-9"><a href="chapter6.html#cb171-9" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb171-10"><a href="chapter6.html#cb171-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb171-11"><a href="chapter6.html#cb171-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb171-12"><a href="chapter6.html#cb171-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Vector after sort:&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Vector after sort:&quot;</code></pre>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="chapter6.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<pre><code>##  [1]  68  59  47  11  16  94  55  -9  -8 -88</code></pre>
+<hr />
+<p>Рішення до <a href="chapter6.html#task6115">задачі 6.1.1.<strong>5</strong></a>:</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="chapter6.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="co">#number &lt;- as.numeric(readline(prompt = &quot;Введіть число:&quot;))</span></span>
+<span id="cb175-2"><a href="chapter6.html#cb175-2" aria-hidden="true" tabindex="-1"></a>number <span class="ot">&lt;-</span> <span class="dv">15783</span></span>
+<span id="cb175-3"><a href="chapter6.html#cb175-3" aria-hidden="true" tabindex="-1"></a>sum <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb175-4"><a href="chapter6.html#cb175-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb175-5"><a href="chapter6.html#cb175-5" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span>(number <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb175-6"><a href="chapter6.html#cb175-6" aria-hidden="true" tabindex="-1"></a>  last_digit <span class="ot">=</span> number <span class="sc">%%</span> <span class="dv">10</span></span>
+<span id="cb175-7"><a href="chapter6.html#cb175-7" aria-hidden="true" tabindex="-1"></a>  sum <span class="ot">=</span> sum <span class="sc">+</span> last_digit</span>
+<span id="cb175-8"><a href="chapter6.html#cb175-8" aria-hidden="true" tabindex="-1"></a>  number <span class="ot">=</span> (number <span class="sc">-</span> last_digit) <span class="sc">/</span> <span class="dv">10</span></span>
+<span id="cb175-9"><a href="chapter6.html#cb175-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">&quot;Number: &quot;</span>, number, <span class="st">&quot; | Sum: &quot;</span>, sum, <span class="st">&quot; | Last: &quot;</span>, last_digit))</span>
+<span id="cb175-10"><a href="chapter6.html#cb175-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Number: 1578 | Sum: 3 | Last: 3&quot;
+## [1] &quot;Number: 157 | Sum: 11 | Last: 8&quot;
+## [1] &quot;Number: 15 | Sum: 18 | Last: 7&quot;
+## [1] &quot;Number: 1 | Sum: 23 | Last: 5&quot;
+## [1] &quot;Number: 0 | Sum: 24 | Last: 1&quot;</code></pre>
+<hr />
+<p>Рішення до <a href="chapter6.html#task6119">задачі 6.1.1.<strong>9</strong></a> (спосіб 1):</p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="chapter6.html#cb177-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">replace =</span> T)</span>
+<span id="cb177-2"><a href="chapter6.html#cb177-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] 10 10  7  5</code></pre>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="chapter6.html#cb179-1" aria-hidden="true" tabindex="-1"></a>x_parni <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb179-2"><a href="chapter6.html#cb179-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb179-3"><a href="chapter6.html#cb179-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)) {</span>
+<span id="cb179-4"><a href="chapter6.html#cb179-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb179-5"><a href="chapter6.html#cb179-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(x[i] <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb179-6"><a href="chapter6.html#cb179-6" aria-hidden="true" tabindex="-1"></a>    x_parni <span class="ot">&lt;-</span> <span class="fu">c</span>(x_parni, x[i])</span>
+<span id="cb179-7"><a href="chapter6.html#cb179-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb179-8"><a href="chapter6.html#cb179-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb179-9"><a href="chapter6.html#cb179-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb179-10"><a href="chapter6.html#cb179-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb179-11"><a href="chapter6.html#cb179-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x_parni)</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>Рішення до <a href="chapter6.html#task6119">задачі 6.1.1.<strong>9</strong></a> (спосіб 2):</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="chapter6.html#cb181-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">replace =</span> T)</span>
+<span id="cb181-2"><a href="chapter6.html#cb181-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1] 7 5 2 2 1 6 8 8 8 3</code></pre>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="chapter6.html#cb183-1" aria-hidden="true" tabindex="-1"></a>sum <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb183-2"><a href="chapter6.html#cb183-2" aria-hidden="true" tabindex="-1"></a>count <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb183-3"><a href="chapter6.html#cb183-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-4"><a href="chapter6.html#cb183-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)) {</span>
+<span id="cb183-5"><a href="chapter6.html#cb183-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb183-6"><a href="chapter6.html#cb183-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(x[i] <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb183-7"><a href="chapter6.html#cb183-7" aria-hidden="true" tabindex="-1"></a>    sum <span class="ot">=</span> sum <span class="sc">+</span> x[i]</span>
+<span id="cb183-8"><a href="chapter6.html#cb183-8" aria-hidden="true" tabindex="-1"></a>    count <span class="ot">=</span> count <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb183-9"><a href="chapter6.html#cb183-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb183-10"><a href="chapter6.html#cb183-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb183-11"><a href="chapter6.html#cb183-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb183-12"><a href="chapter6.html#cb183-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-13"><a href="chapter6.html#cb183-13" aria-hidden="true" tabindex="-1"></a>mean_value <span class="ot">=</span> sum <span class="sc">/</span> count</span>
+<span id="cb183-14"><a href="chapter6.html#cb183-14" aria-hidden="true" tabindex="-1"></a>mean_value</span></code></pre></div>
+<pre><code>## [1] 5.666667</code></pre>
+<hr />
+</div>
+<div id="chapter622" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Функції</h3>
+<p>Рішення до <a href="chapter6.html#task6121">задачі 6.1.2.<strong>1</strong></a>:</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="chapter6.html#cb185-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">size =</span> <span class="dv">10</span>)</span>
+<span id="cb185-2"><a href="chapter6.html#cb185-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<pre><code>##  [1] 15 70 60 86 95 94 91 48 82 47</code></pre>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="chapter6.html#cb187-1" aria-hidden="true" tabindex="-1"></a>vector.info <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
+<span id="cb187-2"><a href="chapter6.html#cb187-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb187-3"><a href="chapter6.html#cb187-3" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">$</span>Sum <span class="ot">&lt;-</span> <span class="fu">sum</span>(vector)</span>
+<span id="cb187-4"><a href="chapter6.html#cb187-4" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">$</span>Mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(vector)</span>
+<span id="cb187-5"><a href="chapter6.html#cb187-5" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">$</span>Median <span class="ot">&lt;-</span> <span class="fu">median</span>(vector)</span>
+<span id="cb187-6"><a href="chapter6.html#cb187-6" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">$</span>Min <span class="ot">&lt;-</span> <span class="fu">min</span>(vector)</span>
+<span id="cb187-7"><a href="chapter6.html#cb187-7" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">$</span>Max <span class="ot">&lt;-</span> <span class="fu">max</span>(vector)</span>
+<span id="cb187-8"><a href="chapter6.html#cb187-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x)</span>
+<span id="cb187-9"><a href="chapter6.html#cb187-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb187-10"><a href="chapter6.html#cb187-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb187-11"><a href="chapter6.html#cb187-11" aria-hidden="true" tabindex="-1"></a><span class="fu">vector.info</span>(x)</span></code></pre></div>
+<pre><code>## $Sum
+## [1] 688
+## 
+## $Mean
+## [1] 68.8
+## 
+## $Median
+## [1] 76
+## 
+## $Min
+## [1] 15
+## 
+## $Max
+## [1] 95</code></pre>
+
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="chapter6.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setlocale</span>(<span class="st">&quot;LC_CTYPE&quot;</span>, <span class="st">&quot;ukrainian&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chapter4.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="-e-.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["r-science.pdf"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
