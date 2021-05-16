@@ -68,6 +68,9 @@ chapter323
 chapter4
 chapter41
 chapter42
+chapter5
+chapter8
+chapter7
 chapter6
 chapter61
 chapter611

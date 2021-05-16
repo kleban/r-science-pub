@@ -1,4 +1,4 @@
-# 8.	Представлення результатів аналізу даних. {#chapter8}
+# 7.	Побудова та навчання математичних моделей, метрики оцінки їх якості. {#chapter7}
 
 <div class="alert alert-danger">
 <i class="far fa-bell fa-alert fa-2x"></i>

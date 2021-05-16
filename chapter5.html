@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Основи роботи з даними у R</title>
+  <title>Розділ 5 5. Прийоми маніпулювання даними (з використанням можливостей бібліотеки dplyr) | Основи роботи з даними у R</title>
   <meta name="description" content="Курс вступ до програмування в R, Проект DataClass" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Основи роботи з даними у R" />
+  <meta property="og:title" content="Розділ 5 5. Прийоми маніпулювання даними (з використанням можливостей бібліотеки dplyr) | Основи роботи з даними у R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="/images/cover.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="kleban/r-science-pub" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Основи роботи з даними у R" />
+  <meta name="twitter:title" content="Розділ 5 5. Прийоми маніпулювання даними (з використанням можливостей бібліотеки dplyr) | Основи роботи з даними у R" />
   
   <meta name="twitter:description" content="Курс вступ до програмування в R, Проект DataClass" />
   <meta name="twitter:image" content="/images/cover.png" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="chapter1.html"/>
+<link rel="prev" href="chapter4.html"/>
+<link rel="next" href="chapter8.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -280,30 +280,131 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Основи роботи з даними у R</h1>
-<p class="author"><em>Юрій Клебан</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-05-16</em></p>
+<div id="chapter5" class="section level1" number="5">
+<h1><span class="header-section-number">Розділ 5</span> 5. Прийоми маніпулювання даними (з використанням можливостей бібліотеки dplyr)</h1>
+<div id="план-4" class="section level2 unnumbered">
+<h2>План</h2>
+<ul>
+<li><a href="chapter4.html#chapter41">Загальний опис структури даних</a></li>
+<li><a href="chapter4.html#chapter42">Опис набору даних <code>TelecomUsers</code></a></li>
+<li><a href="#chapter43">Імпорт даних засобами RStudio</a></li>
+<li><a href="chapter4.html#chapter42">CSV: поняття, читання та запис</a></li>
+<li><a href="#chapter44">XLSX: поняття, читання та запис</a></li>
+<li><a href="#chapter45">JSON: поняття, читання та запис</a></li>
+<li><a href="#chapter46">API: поняття, читання</a></li>
+<li><a href="#chapter47">HTML: поняття, читання</a></li>
+<li><a href="#chapter48">PDF: поняття, читання</a></li>
+<li><a href="#chapter48">Сервіси Google</a>
+<ul>
+<li><a href="#chapter48">Spreadsheets</a></li>
+<li><a href="#chapter48">Keywords</a></li>
+</ul></li>
+</ul>
+<hr />
 </div>
-<div id="загальна-інформація" class="section level1 unnumbered">
-<h1>Загальна інформація</h1>
+<div id="chapter41" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Загальний опис структури даних</h2>
 <div class="alert alert-danger">
-<p><i class="far fa-bell fa-alert fa-2x"></i>
-Увага. Курс у процесі розробки. Матеріали додаватимуться по мірі їх написання та рецензування.</p>
+<p><i class="fa-2x fas fa-alert fa-battery-quarter"></i>
+Матеріали розділу у процесі підготовки.</p>
 </div>
-<div class="text-center">
-<p><img src="images/cover.png" id="id" class="class" style="width:75.0%" /></p>
+<p>Усі дані, що використовуються для наукових досліджень можна розділити на 3 блоки:</p>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="" />
+Структуровані</li>
+<li><input type="checkbox" disabled="" checked="" />
+Слабоструктуровані</li>
+<li><input type="checkbox" disabled="" checked="" />
+Неструктуровані</li>
+</ul>
+<p><strong>Структуровані дані</strong> зазвичай зрозумілі для користувача, сформовані відповідно до певних вимог та дозволяють швидко їх вивчити, без додаткових процедур підготовки.</p>
+<p>Важливою для нас характеристикою <strong>структурованих даних</strong> є те, що вони досить просто піддаються машинній обробці, аналізу та візуалізації.</p>
+<p><strong>Слабоструктуровані дані</strong> часто можуть бути сприйняті людиною, проте форма їх подачі не дозволяє швидко проаналізувати її машиною.</p>
+<p>Найпростішим прикладом структурованих даних є табличні дані, наприклад, в Microsoft Excel, де кожен рядок - це одне спостереження, а кожен стовпець - це одна характеристика.</p>
+<p>Слабоструктуровані дані можуть бути перетворені до структурованих за допомогою підготовлених спеціалістом з по роботі з дадними алгоритмом. Подібний етап зазвчай потребує детального аналізу полів, форми по дання, визначення шаблонів помилок у даних тощо.</p>
+<p><strong>Неструктуровані дані</strong></p>
 </div>
-<p>Курс створено у межах проекту <strong>“Підготовка, обробка та ефективне використання даних для наукових досліджень (на основі R)”</strong>, що підтримує Європейський союз за програмою <a href="https://houseofeurope.org.ua/">House of Europe</a>.</p>
+<div id="chapter42" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Опис набору даних <code>Telecom Users</code></h2>
+<div class="alert alert-info">
+<p>Опис інформації про набір даних взято з сервісу <a href="https://kaggle.com"><code>kaggle.com</code></a>.<br>
+Оригінальний набір розміщений за адресою <a href="https://www.kaggle.com/radmirzosimov/telecom-users-dataset"><code>https://www.kaggle.com/radmirzosimov/telecom-users-dataset</code></a>.</p>
+</div>
+<p><strong>Призначення</strong>:</p>
+<p>Описаний датасет призначений для практикування спеціалістами з машинного навчання розв’язування задач класифікації.</p>
+<p><strong>Опис:</strong></p>
+<p>Any business wants to maximize the number of customers. To achieve this goal, it is important not only to try to attract new ones, but also to retain existing ones. Retaining a client will cost the company less than attracting a new one. In addition, a new client may be weakly interested in business services and it will be difficult to work with him, while old clients already have the necessary data on interaction with the service.</p>
+<p>Accordingly, predicting the churn, we can react in time and try to keep the client who wants to leave. Based on the data about the services that the client uses, we can make him a special offer, trying to change his decision to leave the operator. This will make the task of retention easier to implement than the task of attracting new users, about which we do not know anything yet.</p>
+<p>You are provided with a dataset from a telecommunications company. The data contains information about almost six thousand users, their demographic characteristics, the services they use, the duration of using the operator’s services, the method of payment, and the amount of payment.</p>
+<p>The task is to analyze the data and predict the churn of users (to identify people who will and will not renew their contract). The work should include the following mandatory items:</p>
+<ol style="list-style-type: decimal">
+<li>Description of the data (with the calculation of basic statistics);</li>
+<li>Research of dependencies and formulation of hypotheses;</li>
+<li>Building models for predicting the outflow (with justification for the choice of a particular model) 4. based on tested hypotheses and identified relationships;</li>
+<li>Comparison of the quality of the obtained models.</li>
+</ol>
+<p><strong>Опис полів набору даних:</strong></p>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="" />
+<code>customerID</code> - customer id</li>
+<li><input type="checkbox" disabled="" checked="" />
+<code>gender</code> - client gender (male / female)</li>
+<li><input type="checkbox" disabled="" checked="" />
+<code>SeniorCitizen</code> - is the client retired (1, 0)</li>
+<li><input type="checkbox" disabled="" checked="" />
+<code>Partner</code> - is the client married (Yes, No)</li>
+<li><input type="checkbox" disabled="" checked="" />
+<code>tenure</code> - how many months a person has been a client of the company</li>
+<li><input type="checkbox" disabled="" checked="" />
+<code>PhoneService</code> - is the telephone service connected (Yes, No)</li>
+<li><input type="checkbox" disabled="" checked="" />
+<code>MultipleLines</code> - are multiple phone lines connected (Yes, No, No phone service)</li>
+<li><input type="checkbox" disabled="" checked="" />
+<code>InternetService</code> - client’s Internet service provider (DSL, Fiber optic, No)</li>
+<li><input type="checkbox" disabled="" checked="" />
+<code>OnlineSecurity</code> - is the online security service connected (Yes, No, No internet service)</li>
+<li><input type="checkbox" disabled="" checked="" />
+<code>OnlineBackup</code> - is the online backup service activated (Yes, No, No internet service)</li>
+<li><input type="checkbox" disabled="" checked="" />
+<code>DeviceProtection</code> - does the client have equipment insurance (Yes, No, No internet service)</li>
+<li><input type="checkbox" disabled="" checked="" />
+<code>TechSupport</code> - is the technical support service connected (Yes, No, No internet service)</li>
+<li><input type="checkbox" disabled="" checked="" />
+<code>StreamingTV</code> - is the streaming TV service connected (Yes, No, No internet service)</li>
+<li><input type="checkbox" disabled="" checked="" />
+<code>StreamingMovies</code> - is the streaming cinema service activated (Yes, No, No internet service)</li>
+<li><input type="checkbox" disabled="" checked="" />
+<code>Contract</code> - type of customer contract (Month-to-month, One year, Two year)</li>
+<li><input type="checkbox" disabled="" checked="" />
+<code>PaperlessBilling</code> - whether the client uses paperless billing (Yes, No)</li>
+<li><input type="checkbox" disabled="" checked="" />
+<code>PaymentMethod</code> - payment method (Electronic check, Mailed check, Bank transfer (automatic), Credit card (automatic))</li>
+<li><input type="checkbox" disabled="" checked="" />
+<code>MonthlyCharges</code> - current monthly payment</li>
+<li><input type="checkbox" disabled="" checked="" />
+<code>TotalCharges</code> - the total amount that the client paid for the services for the entire time</li>
+<li><input type="checkbox" disabled="" checked="" />
+<code>Churn - whether</code> there was a churn (Yes or No)</li>
+</ul>
+</div>
+<div id="chapter321" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Імпорт даних засобами RStudio</h2>
+<p><code>RStudio</code> має ряд засобів для</p>
+</div>
+<div id="chapter321" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> CSV-файли: читання,</h2>
+<p><strong>CSV</strong> - це тип файлів, у якому інформація розділена комами (<code>Comma Separated Values</code>). CSV є досить зручним форматом даних для передачі між різними машинами, адже по суті є текстовим файлом і дозволяє легко його зчитати.</p>
+<p><em>Примітка. Наспрвді кома не завжди є роздільником CSV-файлів. Це можуть бути і інші символи.</em></p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="chapter1.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chapter4.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chapter8.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
