@@ -293,6 +293,9 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="chapter4" class="section level1" number="4">
 <h1><span class="header-section-number">Розділ 4</span> 4. Збір та читання інформації з різноманітних джерел: файли, веб-сторінки, бази R</h1>
+<hr />
+<p>Автори: Савчук Сергій, Юрій Клебан</p>
+<hr />
 <div id="план-3" class="section level2 unnumbered">
 <h2>План</h2>
 <ul>
@@ -876,13 +879,13 @@ data &lt;- read_csv2(file = &quot;data/telecom_users.csv&quot;, … )</code></pr
 ## 5 2021-07-08 13:59:59
 ## 6 2021-07-08 14:59:59</code></pre>
 <div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="chapter4.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(data) <span class="co"># check last records</span></span></code></pre></div>
-<pre><code>##               Open_time     Open     High      Low    Close     Volume
-## 95  2021-07-12 07:00:00 34447.92 34678.43 34290.00 34299.94 2014.26287
-## 96  2021-07-12 08:00:00 34299.93 34340.96 34160.39 34330.25 1480.59214
-## 97  2021-07-12 09:00:00 34328.70 34455.00 34207.95 34380.01 1217.81147
-## 98  2021-07-12 10:00:00 34380.00 34510.00 34213.55 34281.74 1930.33376
-## 99  2021-07-12 11:00:00 34281.74 34488.27 34213.16 34273.62 1703.52080
-## 100 2021-07-12 12:00:00 34273.62 34284.99 34233.92 34282.56   61.55017
+<pre><code>##               Open_time     Open     High      Low    Close    Volume
+## 95  2021-07-12 07:00:00 34447.92 34678.43 34290.00 34299.94 2014.2629
+## 96  2021-07-12 08:00:00 34299.93 34340.96 34160.39 34330.25 1480.5921
+## 97  2021-07-12 09:00:00 34328.70 34455.00 34207.95 34380.01 1217.8115
+## 98  2021-07-12 10:00:00 34380.00 34510.00 34213.55 34281.74 1930.3338
+## 99  2021-07-12 11:00:00 34281.74 34488.27 34213.16 34273.62 1703.5208
+## 100 2021-07-12 12:00:00 34273.62 34334.27 34233.92 34298.09  144.8281
 ##              Close_time
 ## 95  2021-07-12 07:59:59
 ## 96  2021-07-12 08:59:59
@@ -929,19 +932,19 @@ gs4_deauth()</code></pre>
 <span id="cb250-2"><a href="chapter4.html#cb250-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(time_trend) <span class="co"># last 6</span></span></code></pre></div>
 <pre><code>##         date hits      keyword geo                  time gprop category
 ## 1 2021-01-01    0 Bitcoin-Kurs  AT 2021-01-01 2021-05-17   web        0
-## 2 2021-01-02    8 Bitcoin-Kurs  AT 2021-01-01 2021-05-17   web        0
-## 3 2021-01-03    8 Bitcoin-Kurs  AT 2021-01-01 2021-05-17   web        0
-## 4 2021-01-04    7 Bitcoin-Kurs  AT 2021-01-01 2021-05-17   web        0
+## 2 2021-01-02    0 Bitcoin-Kurs  AT 2021-01-01 2021-05-17   web        0
+## 3 2021-01-03    0 Bitcoin-Kurs  AT 2021-01-01 2021-05-17   web        0
+## 4 2021-01-04    0 Bitcoin-Kurs  AT 2021-01-01 2021-05-17   web        0
 ## 5 2021-01-05    0 Bitcoin-Kurs  AT 2021-01-01 2021-05-17   web        0
-## 6 2021-01-06    0 Bitcoin-Kurs  AT 2021-01-01 2021-05-17   web        0</code></pre>
+## 6 2021-01-06   12 Bitcoin-Kurs  AT 2021-01-01 2021-05-17   web        0</code></pre>
 <div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="chapter4.html#cb252-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(time_trend) <span class="co"># latest 6</span></span></code></pre></div>
 <pre><code>##           date hits      keyword geo                  time gprop category
-## 269 2021-05-12   33 FC Barcelona  AT 2021-01-01 2021-05-17   web        0
-## 270 2021-05-13    0 FC Barcelona  AT 2021-01-01 2021-05-17   web        0
-## 271 2021-05-14    8 FC Barcelona  AT 2021-01-01 2021-05-17   web        0
-## 272 2021-05-15   25 FC Barcelona  AT 2021-01-01 2021-05-17   web        0
-## 273 2021-05-16   40 FC Barcelona  AT 2021-01-01 2021-05-17   web        0
-## 274 2021-05-17   13 FC Barcelona  AT 2021-01-01 2021-05-17   web        0</code></pre>
+## 269 2021-05-12   16 FC Barcelona  AT 2021-01-01 2021-05-17   web        0
+## 270 2021-05-13    6 FC Barcelona  AT 2021-01-01 2021-05-17   web        0
+## 271 2021-05-14   12 FC Barcelona  AT 2021-01-01 2021-05-17   web        0
+## 272 2021-05-15   41 FC Barcelona  AT 2021-01-01 2021-05-17   web        0
+## 273 2021-05-16   58 FC Barcelona  AT 2021-01-01 2021-05-17   web        0
+## 274 2021-05-17   26 FC Barcelona  AT 2021-01-01 2021-05-17   web        0</code></pre>
 <p>Let’s visualize query results:</p>
 <div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="chapter4.html#cb254-1" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>time_trend, <span class="fu">aes</span>(<span class="at">x=</span>date, <span class="at">y=</span>hits, <span class="at">group=</span>keyword, <span class="at">col=</span>keyword)) <span class="sc">+</span></span>
 <span id="cb254-2"><a href="chapter4.html#cb254-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
@@ -972,7 +975,7 @@ gs4_deauth()</code></pre>
 ## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 ## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
 <div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="chapter4.html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create new db file</span></span>
-<span id="cb258-2"><a href="chapter4.html#cb258-2" aria-hidden="true" tabindex="-1"></a>db_path <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&quot;data/cars_.sqlite&quot;</span>) <span class="co"># chage file name for new create connection</span></span>
+<span id="cb258-2"><a href="chapter4.html#cb258-2" aria-hidden="true" tabindex="-1"></a>db_path <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&quot;data/cars_2.sqlite&quot;</span>) <span class="co"># chage file name for new create connection</span></span>
 <span id="cb258-3"><a href="chapter4.html#cb258-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create connection</span></span>
 <span id="cb258-4"><a href="chapter4.html#cb258-4" aria-hidden="true" tabindex="-1"></a>conn <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), </span>
 <span id="cb258-5"><a href="chapter4.html#cb258-5" aria-hidden="true" tabindex="-1"></a>                    db_path,</span>

@@ -259,17 +259,18 @@ dir()
 
 ```
 ##  [1] "_bookdown.yml"          "_bookdown_files"        "_output.yml"           
-##  [4] "01-chapter1.Rmd"        "01-chapter1_files"      "01-intro_files"        
-##  [7] "02-chapter2.Rmd"        "02-chapter2_files"      "03-chapter3.Rmd"       
-## [10] "04-chapter4.Rmd"        "05-chapter5.Rmd"        "06-chapter6.Rmd"       
-## [13] "07-chapter7.Rmd"        "09-chapter9.Rmd"        "10-references.Rmd"     
-## [16] "book.bib"               "css"                    "data"                  
-## [19] "favicon.ico"            "images"                 "inc"                   
-## [22] "index.md"               "index.Rmd"              "packages.bib"          
-## [25] "preamble.tex"           "r-science.log"          "r-science.rds"         
-## [28] "README.md"              "render_commands"        "render47586ef833c3.rds"
-## [31] "RScience.Rproj"         "sss.R"                  "tmp.R"                 
-## [34] "tmp.RData"
+##  [4] "01-chapter1.md"         "01-chapter1.Rmd"        "01-chapter1_files"     
+##  [7] "01-intro_files"         "02-chapter2.md"         "02-chapter2.Rmd"       
+## [10] "02-chapter2_files"      "03-chapter3.md"         "03-chapter3.Rmd"       
+## [13] "04-chapter4.knit.md"    "04-chapter4.Rmd"        "04-chapter4_files"     
+## [16] "05-chapter5.Rmd"        "06-chapter6.Rmd"        "07-chapter7.Rmd"       
+## [19] "09-chapter9.Rmd"        "10-references.Rmd"      "book.bib"              
+## [22] "css"                    "data"                   "favicon.ico"           
+## [25] "images"                 "inc"                    "index.md"              
+## [28] "index.Rmd"              "packages.bib"           "preamble.tex"          
+## [31] "r-science.log"          "r-science.rds"          "README.md"             
+## [34] "render_commands"        "render27d4728913e3.rds" "RScience.Rproj"        
+## [37] "sss.R"                  "tmp.R"                  "tmp.RData"
 ```
 
 ```r
@@ -278,17 +279,18 @@ list.files()
 
 ```
 ##  [1] "_bookdown.yml"          "_bookdown_files"        "_output.yml"           
-##  [4] "01-chapter1.Rmd"        "01-chapter1_files"      "01-intro_files"        
-##  [7] "02-chapter2.Rmd"        "02-chapter2_files"      "03-chapter3.Rmd"       
-## [10] "04-chapter4.Rmd"        "05-chapter5.Rmd"        "06-chapter6.Rmd"       
-## [13] "07-chapter7.Rmd"        "09-chapter9.Rmd"        "10-references.Rmd"     
-## [16] "book.bib"               "css"                    "data"                  
-## [19] "favicon.ico"            "images"                 "inc"                   
-## [22] "index.md"               "index.Rmd"              "packages.bib"          
-## [25] "preamble.tex"           "r-science.log"          "r-science.rds"         
-## [28] "README.md"              "render_commands"        "render47586ef833c3.rds"
-## [31] "RScience.Rproj"         "sss.R"                  "tmp.R"                 
-## [34] "tmp.RData"
+##  [4] "01-chapter1.md"         "01-chapter1.Rmd"        "01-chapter1_files"     
+##  [7] "01-intro_files"         "02-chapter2.md"         "02-chapter2.Rmd"       
+## [10] "02-chapter2_files"      "03-chapter3.md"         "03-chapter3.Rmd"       
+## [13] "04-chapter4.knit.md"    "04-chapter4.Rmd"        "04-chapter4_files"     
+## [16] "05-chapter5.Rmd"        "06-chapter6.Rmd"        "07-chapter7.Rmd"       
+## [19] "09-chapter9.Rmd"        "10-references.Rmd"      "book.bib"              
+## [22] "css"                    "data"                   "favicon.ico"           
+## [25] "images"                 "inc"                    "index.md"              
+## [28] "index.Rmd"              "packages.bib"           "preamble.tex"          
+## [31] "r-science.log"          "r-science.rds"          "README.md"             
+## [34] "render_commands"        "render27d4728913e3.rds" "RScience.Rproj"        
+## [37] "sss.R"                  "tmp.R"                  "tmp.RData"
 ```
 
 #### Допомога (help/?) {#chapter1315}
@@ -404,7 +406,7 @@ vtr
 ```
 
 ```
-##  [1] 4 3 4 4 1 3 4 2 3 2 2 5 3 2 1 5 1 1 3 3
+##  [1] 4 2 4 2 2 1 5 1 4 4 4 1 4 4 4 5 2 4 1 5
 ```
 
 <div class="alert alert-danger">
@@ -425,7 +427,7 @@ print(paste0("Sum: ", vtr_sum))
 ```
 
 ```
-## [1] "Sum: 56"
+## [1] "Sum: 63"
 ```
 
 ```r
@@ -433,7 +435,7 @@ print(paste0("Mean: ", vtr_mean))
 ```
 
 ```
-## [1] "Mean: 2.8"
+## [1] "Mean: 3.15"
 ```
 
 Виведемо гістограму:
