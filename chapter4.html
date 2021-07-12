@@ -249,10 +249,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.9" data-path="chapter4.html"><a href="chapter4.html#chapter47"><i class="fa fa-check"></i><b>4.9</b> SQL (SQLite sample)</a></li>
 <li class="chapter" data-level="4.10" data-path="chapter4.html"><a href="chapter4.html#web-pages-html"><i class="fa fa-check"></i><b>4.10</b> Web-pages (HTML)</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="chapter5.html"><a href="chapter5.html"><i class="fa fa-check"></i><b>5</b> 5. Прийоми маніпулювання даними (з використанням можливостей бібліотеки dplyr)</a>
-<ul>
-<li class="chapter" data-level="" data-path="chapter5.html"><a href="chapter5.html#план-4"><i class="fa fa-check"></i>План</a></li>
-</ul></li>
+<li class="chapter" data-level="5" data-path="chapter5.html"><a href="chapter5.html"><i class="fa fa-check"></i><b>5</b> 5. Прийоми маніпулювання даними (з використанням можливостей бібліотеки dplyr)</a></li>
 <li class="chapter" data-level="6" data-path="chapter8.html"><a href="chapter8.html"><i class="fa fa-check"></i><b>6</b> 8. Представлення результатів аналізу даних.</a></li>
 <li class="chapter" data-level="7" data-path="chapter7.html"><a href="chapter7.html"><i class="fa fa-check"></i><b>7</b> 7. Побудова та навчання математичних моделей, метрики оцінки їх якості.</a></li>
 <li class="chapter" data-level="8" data-path="chapter6.html"><a href="chapter6.html"><i class="fa fa-check"></i><b>8</b> Приклади задач та їх розв’язки</a>
@@ -293,7 +290,6 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="chapter4" class="section level1" number="4">
 <h1><span class="header-section-number">Розділ 4</span> 4. Збір та читання інформації з різноманітних джерел: файли, веб-сторінки, бази R</h1>
-<hr />
 <p>Автори: Савчук Сергій, Юрій Клебан</p>
 <hr />
 <div id="план-3" class="section level2 unnumbered">
@@ -885,7 +881,7 @@ data &lt;- read_csv2(file = &quot;data/telecom_users.csv&quot;, … )</code></pr
 ## 97  2021-07-12 09:00:00 34328.70 34455.00 34207.95 34380.01 1217.8115
 ## 98  2021-07-12 10:00:00 34380.00 34510.00 34213.55 34281.74 1930.3338
 ## 99  2021-07-12 11:00:00 34281.74 34488.27 34213.16 34273.62 1703.5208
-## 100 2021-07-12 12:00:00 34273.62 34334.27 34233.92 34298.09  144.8281
+## 100 2021-07-12 12:00:00 34273.62 34334.27 34100.05 34119.99  709.7795
 ##              Close_time
 ## 95  2021-07-12 07:59:59
 ## 96  2021-07-12 08:59:59
@@ -975,7 +971,7 @@ gs4_deauth()</code></pre>
 ## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 ## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
 <div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="chapter4.html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create new db file</span></span>
-<span id="cb258-2"><a href="chapter4.html#cb258-2" aria-hidden="true" tabindex="-1"></a>db_path <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&quot;data/cars_2.sqlite&quot;</span>) <span class="co"># chage file name for new create connection</span></span>
+<span id="cb258-2"><a href="chapter4.html#cb258-2" aria-hidden="true" tabindex="-1"></a>db_path <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&quot;data/cars_3.sqlite&quot;</span>) <span class="co"># change file name for new create connection</span></span>
 <span id="cb258-3"><a href="chapter4.html#cb258-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create connection</span></span>
 <span id="cb258-4"><a href="chapter4.html#cb258-4" aria-hidden="true" tabindex="-1"></a>conn <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), </span>
 <span id="cb258-5"><a href="chapter4.html#cb258-5" aria-hidden="true" tabindex="-1"></a>                    db_path,</span>

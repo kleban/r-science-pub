@@ -1,7 +1,5 @@
 # 4.	Збір та читання інформації з різноманітних джерел: файли, веб-сторінки, бази R {#chapter4}
 
----
-
 Автори: Савчук Сергій, Юрій Клебан
 
 ---
@@ -899,7 +897,7 @@ tail(data) # check last records
 ## 97  2021-07-12 09:00:00 34328.70 34455.00 34207.95 34380.01 1217.8115
 ## 98  2021-07-12 10:00:00 34380.00 34510.00 34213.55 34281.74 1930.3338
 ## 99  2021-07-12 11:00:00 34281.74 34488.27 34213.16 34273.62 1703.5208
-## 100 2021-07-12 12:00:00 34273.62 34334.27 34233.92 34298.09  144.8281
+## 100 2021-07-12 12:00:00 34273.62 34334.27 34100.05 34119.99  709.7795
 ##              Close_time
 ## 95  2021-07-12 07:59:59
 ## 96  2021-07-12 08:59:59
@@ -1054,7 +1052,7 @@ head(mtcars) # preview the data
 
 ```r
 # create new db file
-db_path = paste0("data/cars_2.sqlite") # chage file name for new create connection
+db_path = paste0("data/cars_3.sqlite") # change file name for new create connection
 # create connection
 conn <- dbConnect(RSQLite::SQLite(), 
                     db_path,
