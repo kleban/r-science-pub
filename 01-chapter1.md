@@ -258,16 +258,18 @@ dir()
 ```
 
 ```
-##  [1] "_bookdown.yml"        "_bookdown_files"      "_output.yml"         
-##  [4] "01-chapter1.Rmd"      "01-chapter1_files"    "01-intro_files"      
-##  [7] "02-chapter2.Rmd"      "02-chapter2_files"    "03-chapter3.Rmd"     
-## [10] "04-chapter4.Rmd"      "05-chapter5.Rmd"      "06-chapter6.Rmd"     
-## [13] "07-chapter7.Rmd"      "09-chapter9.Rmd"      "10-references.Rmd"   
-## [16] "book.bib"             "css"                  "favicon.ico"         
-## [19] "images"               "inc"                  "index.md"            
-## [22] "index.Rmd"            "packages.bib"         "preamble.tex"        
-## [25] "r-science.rds"        "README.md"            "render_commands"     
-## [28] "render7a469c07c5.rds" "RScience.Rproj"       "tmp.RData"
+##  [1] "_bookdown.yml"          "_bookdown_files"        "_output.yml"           
+##  [4] "01-chapter1.Rmd"        "01-chapter1_files"      "01-intro_files"        
+##  [7] "02-chapter2.Rmd"        "02-chapter2_files"      "03-chapter3.Rmd"       
+## [10] "04-chapter4.Rmd"        "05-chapter5.Rmd"        "06-chapter6.Rmd"       
+## [13] "07-chapter7.Rmd"        "09-chapter9.Rmd"        "10-references.Rmd"     
+## [16] "book.bib"               "css"                    "data"                  
+## [19] "favicon.ico"            "images"                 "inc"                   
+## [22] "index.md"               "index.Rmd"              "packages.bib"          
+## [25] "preamble.tex"           "r-science.log"          "r-science.rds"         
+## [28] "README.md"              "render_commands"        "render47586ef833c3.rds"
+## [31] "RScience.Rproj"         "sss.R"                  "tmp.R"                 
+## [34] "tmp.RData"
 ```
 
 ```r
@@ -275,16 +277,18 @@ list.files()
 ```
 
 ```
-##  [1] "_bookdown.yml"        "_bookdown_files"      "_output.yml"         
-##  [4] "01-chapter1.Rmd"      "01-chapter1_files"    "01-intro_files"      
-##  [7] "02-chapter2.Rmd"      "02-chapter2_files"    "03-chapter3.Rmd"     
-## [10] "04-chapter4.Rmd"      "05-chapter5.Rmd"      "06-chapter6.Rmd"     
-## [13] "07-chapter7.Rmd"      "09-chapter9.Rmd"      "10-references.Rmd"   
-## [16] "book.bib"             "css"                  "favicon.ico"         
-## [19] "images"               "inc"                  "index.md"            
-## [22] "index.Rmd"            "packages.bib"         "preamble.tex"        
-## [25] "r-science.rds"        "README.md"            "render_commands"     
-## [28] "render7a469c07c5.rds" "RScience.Rproj"       "tmp.RData"
+##  [1] "_bookdown.yml"          "_bookdown_files"        "_output.yml"           
+##  [4] "01-chapter1.Rmd"        "01-chapter1_files"      "01-intro_files"        
+##  [7] "02-chapter2.Rmd"        "02-chapter2_files"      "03-chapter3.Rmd"       
+## [10] "04-chapter4.Rmd"        "05-chapter5.Rmd"        "06-chapter6.Rmd"       
+## [13] "07-chapter7.Rmd"        "09-chapter9.Rmd"        "10-references.Rmd"     
+## [16] "book.bib"               "css"                    "data"                  
+## [19] "favicon.ico"            "images"                 "inc"                   
+## [22] "index.md"               "index.Rmd"              "packages.bib"          
+## [25] "preamble.tex"           "r-science.log"          "r-science.rds"         
+## [28] "README.md"              "render_commands"        "render47586ef833c3.rds"
+## [31] "RScience.Rproj"         "sss.R"                  "tmp.R"                 
+## [34] "tmp.RData"
 ```
 
 #### Допомога (help/?) {#chapter1315}
@@ -400,7 +404,7 @@ vtr
 ```
 
 ```
-##  [1] 4 1 1 2 4 1 2 3 3 5 2 5 1 5 1 1 1 4 5 5
+##  [1] 4 3 4 4 1 3 4 2 3 2 2 5 3 2 1 5 1 1 3 3
 ```
 
 <div class="alert alert-danger">

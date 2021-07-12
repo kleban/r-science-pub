@@ -1,7 +1,7 @@
 --- 
 title: "Підготовка, обробка та ефективне використання даних для наукових досліджень"
 author: "Юрій Клебан"
-date: "2021-05-16"
+date: "2021-07-12"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -25,3 +25,5 @@ github-repo: "kleban/r-science-pub"
 </div>
 
 Курс створено у межах проекту <strong>"Підготовка, обробка та ефективне використання даних для наукових досліджень (на основі R)"</strong>, що підтримує Європейський союз за програмою [House of Europe](https://houseofeurope.org.ua/).
+
+Автори: Юрій Клебан, Новоселецький Олександр, Савчук Сергій, Бочаров Антон
