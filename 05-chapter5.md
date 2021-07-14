@@ -1,4 +1,4 @@
-# 5.	Прийоми маніпулювання даними (з використанням можливостей бібліотеки dplyr) {#chapter5}
+# Прийоми маніпулювання даними (з використанням можливостей бібліотеки dplyr) {#chapter5}
 
 <div class="alert alert-danger">
 <i class="far fa-bell fa-alert fa-2x"></i>
@@ -15,7 +15,7 @@
 
 ---
 
-## 1.What's dplyr
+## What's dplyr
 
 
 The dplyr package is one of the most powerful and popular package in R for data manipulation.
@@ -96,9 +96,9 @@ library(tidyverse)
 
 ---
 
-## 2. Exploring data with dplyr
+## Exploring data with dplyr
 
-### 2.1. Funtions and dataset explore
+### Funtions and dataset explore
 
 For the next sample we are going to use `gapminder` dataset.
 
@@ -210,7 +210,7 @@ summary(gapminder)
 ## 
 ```
 
-### 2.2. filter() function
+### filter() function
 
 
 ```r
@@ -299,7 +299,7 @@ filter(gapminder, country %in% c("Austria", "Belgium"))
 
 ---
 
-## 2.3. Pipe (%>%) operator
+## Pipe (%>%) operator
 
 `%>%` is pipe operator. The pipe operator takes the thing on the left-hand-side and pipes it into the function call on the right-hand-side – literally, drops it in as the first argument.
 
@@ -406,7 +406,7 @@ austria
 
 ---
 
-### 2.4. select function
+### select() function
 
 Use select() to subset the data on variables/columns by names or index. You also can define order of columns with select().
 
@@ -553,7 +553,7 @@ gapminder %>%
 ```
 
 ---
-### 2.5. Random sampling
+### Random sampling
 
 The sample_n() function selects random rows from a data frame
 
@@ -564,13 +564,13 @@ gapminder %>% sample_n(5)
 
 ```
 ## # A tibble: 5 x 6
-##   country         continent  year lifeExp     pop gdpPercap
-##   <fct>           <fct>     <int>   <dbl>   <int>     <dbl>
-## 1 Senegal         Africa     1977    48.9 5260855     1562.
-## 2 Paraguay        Americas   2007    71.8 6667147     4173.
-## 3 Bulgaria        Europe     1977    70.8 8797022     7612.
-## 4 Cambodia        Asia       1952    39.4 4693836      368.
-## 5 Slovak Republic Europe     1957    67.4 3844277     6093.
+##   country             continent  year lifeExp      pop gdpPercap
+##   <fct>               <fct>     <int>   <dbl>    <int>     <dbl>
+## 1 France              Europe     1972    72.4 51732000    16107.
+## 2 Trinidad and Tobago Americas   1962    64.9   887498     4998.
+## 3 Vietnam             Asia       1967    47.8 39463910      637.
+## 4 Algeria             Africa     2007    72.3 33333216     6223.
+## 5 Switzerland         Europe     1972    73.8  6401400    27195.
 ```
 
 
@@ -608,7 +608,7 @@ gapminder %>% sample_frac(0.1)
 
 ---
 
-### 2.6. Subset rows using their positions with slice()
+### Subset rows using their positions with slice()
 
 
 **Description**
@@ -756,7 +756,7 @@ gapminder %>% slice_max(lifeExp, n = 5)
 
 ---
 
-### 2.7. Sorting with arrange()
+### Sorting with arrange()
 
 
 arrange(.data, …) function order rows by values of a column or columns (low to high)You can use with desc() to order from high to low.
@@ -798,7 +798,7 @@ t <- gapminder %>% arrange(continent, desc( country))
 ---
 
 
-### 2.7. Create new variables with mutate()
+### Create new variables with mutate()
 
 mutate(.data, …) compute new column(s). Lets compute new column for data2002 $gdpTotal = gdpPercap * pop / 1000000$.
 
@@ -905,7 +905,7 @@ data2002 %>%
 
 ---
 
-### 2.8. Renaming columns with rename()
+### Renaming columns with rename()
 
 rename(.data, …) rename columns. Let's rename column pop to poulation:
 
@@ -934,7 +934,7 @@ gapminder %>%
 
 ---
 
-### 2.9. Calculations with group_by() + summarise()
+### Calculations with group_by() + summarise()
 
 
 group_by(.data, ..., add = FALSE) returns copy of table grouped by defined columns.
@@ -1072,7 +1072,7 @@ with(f_data, lines(Age, Income, type = "l", col ="blue"))
 
 ---
 
-### 2.10. Binding rows and columns
+### Binding rows and columns
 
 bind_rows(.data, …) helps to unite two dataframes with the same columns order and names.
 
@@ -1231,7 +1231,7 @@ grouped_data
 
 ---
 
-### 2.11. Join()ing data
+### Join()ing data
 
 To solve previous problem you can use set of join()-functions. left_join() can solve our previous example:
 
@@ -1403,7 +1403,7 @@ Short description of reviewed functions:
 
 ---
 
-### 2.12. Data cleaning with gather()
+### Data cleaning with gather()
 
 Some times your data is not in tidy format. Peole can collect data year by year in each column. It's problem to use such data for feature engeniering and building prediction models. Let's generate such data sample (quaterly salary of some people).
 

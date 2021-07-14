@@ -1,7 +1,7 @@
 --- 
 title: "Підготовка, обробка та ефективне використання даних для наукових досліджень"
 author: "Юрій Клебан"
-date: "2021-07-13"
+date: "2021-07-14"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]

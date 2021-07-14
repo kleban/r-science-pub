@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Розділ 5 5. Прийоми маніпулювання даними (з використанням можливостей бібліотеки dplyr) | Підготовка, обробка та ефективне використання даних для наукових досліджень</title>
+  <title>Розділ 5 Прийоми маніпулювання даними (з використанням можливостей бібліотеки dplyr) | Підготовка, обробка та ефективне використання даних для наукових досліджень</title>
   <meta name="description" content="Курс вступ до програмування в R, Проект DataClass" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Розділ 5 5. Прийоми маніпулювання даними (з використанням можливостей бібліотеки dplyr) | Підготовка, обробка та ефективне використання даних для наукових досліджень" />
+  <meta property="og:title" content="Розділ 5 Прийоми маніпулювання даними (з використанням можливостей бібліотеки dplyr) | Підготовка, обробка та ефективне використання даних для наукових досліджень" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="/images/cover.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="kleban/r-science-pub" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Розділ 5 5. Прийоми маніпулювання даними (з використанням можливостей бібліотеки dplyr) | Підготовка, обробка та ефективне використання даних для наукових досліджень" />
+  <meta name="twitter:title" content="Розділ 5 Прийоми маніпулювання даними (з використанням можливостей бібліотеки dplyr) | Підготовка, обробка та ефективне використання даних для наукових досліджень" />
   
   <meta name="twitter:description" content="Курс вступ до програмування в R, Проект DataClass" />
   <meta name="twitter:image" content="/images/cover.png" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Юрій Клебан" />
 
 
-<meta name="date" content="2021-07-13" />
+<meta name="date" content="2021-07-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -172,7 +172,6 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Загальна інформація</a></li>
 <li class="chapter" data-level="1" data-path="chapter1.html"><a href="chapter1.html"><i class="fa fa-check"></i><b>1</b> Вступ до курсу</a>
 <ul>
-<li class="chapter" data-level="" data-path="chapter1.html"><a href="chapter1.html#план"><i class="fa fa-check"></i>План</a></li>
 <li class="chapter" data-level="1.1" data-path="chapter1.html"><a href="chapter1.html#chapter11"><i class="fa fa-check"></i><b>1.1</b> Що таке R?</a></li>
 <li class="chapter" data-level="1.2" data-path="chapter1.html"><a href="chapter1.html#chapter12"><i class="fa fa-check"></i><b>1.2</b> Історія створення R</a></li>
 <li class="chapter" data-level="1.3" data-path="chapter1.html"><a href="chapter1.html#chapter13"><i class="fa fa-check"></i><b>1.3</b> Основи роботи з R</a>
@@ -190,7 +189,6 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2" data-path="chapter2.html"><a href="chapter2.html"><i class="fa fa-check"></i><b>2</b> Базові конструкції мови R: типи та структури даних. Частина 1</a>
 <ul>
-<li class="chapter" data-level="" data-path="chapter2.html"><a href="chapter2.html#план-1"><i class="fa fa-check"></i>План</a></li>
 <li class="chapter" data-level="2.1" data-path="chapter2.html"><a href="chapter2.html#chapter21"><i class="fa fa-check"></i><b>2.1</b> Оголошення та ініціалізація змінних</a>
 <ul>
 <li class="chapter" data-level="2.1.1" data-path="chapter2.html"><a href="chapter2.html#chapter211"><i class="fa fa-check"></i><b>2.1.1</b> Поняття змінних та оператор присвоєння</a></li>
@@ -218,7 +216,6 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="3" data-path="chapter3.html"><a href="chapter3.html"><i class="fa fa-check"></i><b>3</b> Базові конструкції мови R: типи та структури даних. Частина 2</a>
 <ul>
-<li class="chapter" data-level="" data-path="chapter3.html"><a href="chapter3.html#план-2"><i class="fa fa-check"></i>План</a></li>
 <li class="chapter" data-level="3.1" data-path="chapter3.html"><a href="chapter3.html#chapter31"><i class="fa fa-check"></i><b>3.1</b> Набори даних</a></li>
 <li class="chapter" data-level="3.2" data-path="chapter3.html"><a href="chapter3.html#chapter32"><i class="fa fa-check"></i><b>3.2</b> Вектори (vectors)</a>
 <ul>
@@ -231,45 +228,44 @@ div.csl-indent {
 <li class="chapter" data-level="3.2.7" data-path="chapter3.html"><a href="chapter3.html#correction-of-data-na-nan-inf"><i class="fa fa-check"></i><b>3.2.7</b> Correction of data (NA, NaN, Inf)</a></li>
 <li class="chapter" data-level="3.2.8" data-path="chapter3.html"><a href="chapter3.html#tasks"><i class="fa fa-check"></i><b>3.2.8</b> Tasks</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="chapter3.html"><a href="chapter3.html#matrices"><i class="fa fa-check"></i><b>3.3</b> 2. Matrices</a>
+<li class="chapter" data-level="3.3" data-path="chapter3.html"><a href="chapter3.html#matrices"><i class="fa fa-check"></i><b>3.3</b> Matrices</a>
 <ul>
 <li class="chapter" data-level="3.3.1" data-path="chapter3.html"><a href="chapter3.html#creating-matrices"><i class="fa fa-check"></i><b>3.3.1</b> Creating matrices</a></li>
 <li class="chapter" data-level="3.3.2" data-path="chapter3.html"><a href="chapter3.html#naming-matrices"><i class="fa fa-check"></i><b>3.3.2</b> Naming matrices</a></li>
 <li class="chapter" data-level="3.3.3" data-path="chapter3.html"><a href="chapter3.html#access-to-matrix-elements"><i class="fa fa-check"></i><b>3.3.3</b> Access to matrix elements</a></li>
 <li class="chapter" data-level="3.3.4" data-path="chapter3.html"><a href="chapter3.html#useful-functions-1"><i class="fa fa-check"></i><b>3.3.4</b> Useful functions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="chapter3.html"><a href="chapter3.html#factors"><i class="fa fa-check"></i><b>3.4</b> 3. Factors</a></li>
-<li class="chapter" data-level="3.5" data-path="chapter3.html"><a href="chapter3.html#dataframes"><i class="fa fa-check"></i><b>3.5</b> 4. Dataframes</a></li>
-<li class="chapter" data-level="3.6" data-path="chapter3.html"><a href="chapter3.html#creating-data-frames"><i class="fa fa-check"></i><b>3.6</b> Creating Data Frames</a>
+<li class="chapter" data-level="3.4" data-path="chapter3.html"><a href="chapter3.html#factors"><i class="fa fa-check"></i><b>3.4</b> Factors</a></li>
+<li class="chapter" data-level="3.5" data-path="chapter3.html"><a href="chapter3.html#dataframes"><i class="fa fa-check"></i><b>3.5</b> Dataframes</a>
 <ul>
-<li class="chapter" data-level="3.6.1" data-path="chapter3.html"><a href="chapter3.html#extending-data-frames"><i class="fa fa-check"></i><b>3.6.1</b> Extending data frames</a></li>
-<li class="chapter" data-level="3.6.2" data-path="chapter3.html"><a href="chapter3.html#merge-df"><i class="fa fa-check"></i><b>3.6.2</b> Merge DF</a></li>
-<li class="chapter" data-level="3.6.3" data-path="chapter3.html"><a href="chapter3.html#subsetting-data-frames"><i class="fa fa-check"></i><b>3.6.3</b> Subsetting Data Frames</a></li>
-<li class="chapter" data-level="3.6.4" data-path="chapter3.html"><a href="chapter3.html#order-data.frame"><i class="fa fa-check"></i><b>3.6.4</b> Order data.frame</a></li>
-<li class="chapter" data-level="3.6.5" data-path="chapter3.html"><a href="chapter3.html#manipulating-data.frames"><i class="fa fa-check"></i><b>3.6.5</b> Manipulating data.frames</a></li>
-<li class="chapter" data-level="3.6.6" data-path="chapter3.html"><a href="chapter3.html#tasks-on-data.frames"><i class="fa fa-check"></i><b>3.6.6</b> Tasks on data.frames</a></li>
+<li class="chapter" data-level="3.5.1" data-path="chapter3.html"><a href="chapter3.html#creating-data-frames"><i class="fa fa-check"></i><b>3.5.1</b> Creating Data Frames</a></li>
+<li class="chapter" data-level="3.5.2" data-path="chapter3.html"><a href="chapter3.html#extending-data-frames"><i class="fa fa-check"></i><b>3.5.2</b> Extending data frames</a></li>
+<li class="chapter" data-level="3.5.3" data-path="chapter3.html"><a href="chapter3.html#merge-df"><i class="fa fa-check"></i><b>3.5.3</b> Merge DF</a></li>
+<li class="chapter" data-level="3.5.4" data-path="chapter3.html"><a href="chapter3.html#subsetting-data-frames"><i class="fa fa-check"></i><b>3.5.4</b> Subsetting Data Frames</a></li>
+<li class="chapter" data-level="3.5.5" data-path="chapter3.html"><a href="chapter3.html#order-data.frame"><i class="fa fa-check"></i><b>3.5.5</b> Order data.frame</a></li>
+<li class="chapter" data-level="3.5.6" data-path="chapter3.html"><a href="chapter3.html#manipulating-data.frames"><i class="fa fa-check"></i><b>3.5.6</b> Manipulating data.frames</a></li>
+<li class="chapter" data-level="3.5.7" data-path="chapter3.html"><a href="chapter3.html#tasks-on-data.frames"><i class="fa fa-check"></i><b>3.5.7</b> Tasks on data.frames</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="chapter3.html"><a href="chapter3.html#lists"><i class="fa fa-check"></i><b>3.7</b> 5. Lists</a>
+<li class="chapter" data-level="3.6" data-path="chapter3.html"><a href="chapter3.html#lists"><i class="fa fa-check"></i><b>3.6</b> Lists</a>
 <ul>
-<li class="chapter" data-level="3.7.1" data-path="chapter3.html"><a href="chapter3.html#creating-a-list"><i class="fa fa-check"></i><b>3.7.1</b> Creating a List</a></li>
-<li class="chapter" data-level="3.7.2" data-path="chapter3.html"><a href="chapter3.html#naming-list-elements"><i class="fa fa-check"></i><b>3.7.2</b> Naming List Elements</a></li>
-<li class="chapter" data-level="3.7.3" data-path="chapter3.html"><a href="chapter3.html#accessing-list-elements"><i class="fa fa-check"></i><b>3.7.3</b> Accessing List Elements</a></li>
-<li class="chapter" data-level="3.7.4" data-path="chapter3.html"><a href="chapter3.html#manipulating-list-elements"><i class="fa fa-check"></i><b>3.7.4</b> Manipulating List Elements</a></li>
-<li class="chapter" data-level="3.7.5" data-path="chapter3.html"><a href="chapter3.html#tasks-1"><i class="fa fa-check"></i><b>3.7.5</b> TASKS</a></li>
+<li class="chapter" data-level="3.6.1" data-path="chapter3.html"><a href="chapter3.html#creating-a-list"><i class="fa fa-check"></i><b>3.6.1</b> Creating a List</a></li>
+<li class="chapter" data-level="3.6.2" data-path="chapter3.html"><a href="chapter3.html#naming-list-elements"><i class="fa fa-check"></i><b>3.6.2</b> Naming List Elements</a></li>
+<li class="chapter" data-level="3.6.3" data-path="chapter3.html"><a href="chapter3.html#accessing-list-elements"><i class="fa fa-check"></i><b>3.6.3</b> Accessing List Elements</a></li>
+<li class="chapter" data-level="3.6.4" data-path="chapter3.html"><a href="chapter3.html#manipulating-list-elements"><i class="fa fa-check"></i><b>3.6.4</b> Manipulating List Elements</a></li>
+<li class="chapter" data-level="3.6.5" data-path="chapter3.html"><a href="chapter3.html#tasks-1"><i class="fa fa-check"></i><b>3.6.5</b> TASKS</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="chapter3.html"><a href="chapter3.html#apply-functions-family"><i class="fa fa-check"></i><b>3.8</b> 6. Apply functions family</a>
+<li class="chapter" data-level="3.7" data-path="chapter3.html"><a href="chapter3.html#apply-functions-family"><i class="fa fa-check"></i><b>3.7</b> Apply functions family</a>
 <ul>
-<li class="chapter" data-level="3.8.1" data-path="chapter3.html"><a href="chapter3.html#the-apply-functions-family"><i class="fa fa-check"></i><b>3.8.1</b> The apply() functions family</a></li>
-<li class="chapter" data-level="3.8.2" data-path="chapter3.html"><a href="chapter3.html#apply"><i class="fa fa-check"></i><b>3.8.2</b> apply()</a></li>
-<li class="chapter" data-level="3.8.3" data-path="chapter3.html"><a href="chapter3.html#lapply"><i class="fa fa-check"></i><b>3.8.3</b> lapply()</a></li>
-<li class="chapter" data-level="3.8.4" data-path="chapter3.html"><a href="chapter3.html#sapplay"><i class="fa fa-check"></i><b>3.8.4</b> sapplay()</a></li>
-<li class="chapter" data-level="3.8.5" data-path="chapter3.html"><a href="chapter3.html#aggregate"><i class="fa fa-check"></i><b>3.8.5</b> aggregate()</a></li>
+<li class="chapter" data-level="3.7.1" data-path="chapter3.html"><a href="chapter3.html#the-apply-functions-family"><i class="fa fa-check"></i><b>3.7.1</b> The apply() functions family</a></li>
+<li class="chapter" data-level="3.7.2" data-path="chapter3.html"><a href="chapter3.html#apply"><i class="fa fa-check"></i><b>3.7.2</b> apply()</a></li>
+<li class="chapter" data-level="3.7.3" data-path="chapter3.html"><a href="chapter3.html#lapply"><i class="fa fa-check"></i><b>3.7.3</b> lapply()</a></li>
+<li class="chapter" data-level="3.7.4" data-path="chapter3.html"><a href="chapter3.html#sapplay"><i class="fa fa-check"></i><b>3.7.4</b> sapplay()</a></li>
+<li class="chapter" data-level="3.7.5" data-path="chapter3.html"><a href="chapter3.html#aggregate"><i class="fa fa-check"></i><b>3.7.5</b> aggregate()</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="chapter3.html"><a href="chapter3.html#references"><i class="fa fa-check"></i><b>3.9</b> References</a></li>
+<li class="chapter" data-level="3.8" data-path="chapter3.html"><a href="chapter3.html#references"><i class="fa fa-check"></i><b>3.8</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="chapter4.html"><a href="chapter4.html"><i class="fa fa-check"></i><b>4</b> 4. Збір та читання інформації з різноманітних джерел: файли, веб-сторінки, бази R</a>
+<li class="chapter" data-level="4" data-path="chapter4.html"><a href="chapter4.html"><i class="fa fa-check"></i><b>4</b> Збір та читання інформації з різноманітних джерел: файли, веб-сторінки, бази R</a>
 <ul>
-<li class="chapter" data-level="" data-path="chapter4.html"><a href="chapter4.html#план-3"><i class="fa fa-check"></i>План</a></li>
 <li class="chapter" data-level="4.1" data-path="chapter4.html"><a href="chapter4.html#chapter41"><i class="fa fa-check"></i><b>4.1</b> Загальний опис структури даних</a></li>
 <li class="chapter" data-level="4.2" data-path="chapter4.html"><a href="chapter4.html#chapter42"><i class="fa fa-check"></i><b>4.2</b> Опис набору даних <code>Telecom Users</code></a></li>
 <li class="chapter" data-level="4.3" data-path="chapter3.html"><a href="chapter3.html#chapter321"><i class="fa fa-check"></i><b>4.3</b> Імпорт даних засобами RStudio</a></li>
@@ -288,27 +284,28 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4.9" data-path="chapter4.html"><a href="chapter4.html#chapter47"><i class="fa fa-check"></i><b>4.9</b> SQL (SQLite sample)</a></li>
 <li class="chapter" data-level="4.10" data-path="chapter4.html"><a href="chapter4.html#web-pages-html"><i class="fa fa-check"></i><b>4.10</b> Web-pages (HTML)</a></li>
+<li class="chapter" data-level="4.11" data-path="chapter4.html"><a href="chapter4.html#references-1"><i class="fa fa-check"></i><b>4.11</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="chapter5.html"><a href="chapter5.html"><i class="fa fa-check"></i><b>5</b> 5. Прийоми маніпулювання даними (з використанням можливостей бібліотеки dplyr)</a>
+<li class="chapter" data-level="5" data-path="chapter5.html"><a href="chapter5.html"><i class="fa fa-check"></i><b>5</b> Прийоми маніпулювання даними (з використанням можливостей бібліотеки dplyr)</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="chapter5.html"><a href="chapter5.html#whats-dplyr"><i class="fa fa-check"></i><b>5.1</b> 1.What’s dplyr</a></li>
-<li class="chapter" data-level="5.2" data-path="chapter5.html"><a href="chapter5.html#exploring-data-with-dplyr"><i class="fa fa-check"></i><b>5.2</b> 2. Exploring data with dplyr</a>
+<li class="chapter" data-level="5.1" data-path="chapter5.html"><a href="chapter5.html#whats-dplyr"><i class="fa fa-check"></i><b>5.1</b> What’s dplyr</a></li>
+<li class="chapter" data-level="5.2" data-path="chapter5.html"><a href="chapter5.html#exploring-data-with-dplyr"><i class="fa fa-check"></i><b>5.2</b> Exploring data with dplyr</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="chapter5.html"><a href="chapter5.html#funtions-and-dataset-explore"><i class="fa fa-check"></i><b>5.2.1</b> 2.1. Funtions and dataset explore</a></li>
-<li class="chapter" data-level="5.2.2" data-path="chapter5.html"><a href="chapter5.html#filter-function"><i class="fa fa-check"></i><b>5.2.2</b> 2.2. filter() function</a></li>
+<li class="chapter" data-level="5.2.1" data-path="chapter5.html"><a href="chapter5.html#funtions-and-dataset-explore"><i class="fa fa-check"></i><b>5.2.1</b> Funtions and dataset explore</a></li>
+<li class="chapter" data-level="5.2.2" data-path="chapter5.html"><a href="chapter5.html#filter-function"><i class="fa fa-check"></i><b>5.2.2</b> filter() function</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="chapter5.html"><a href="chapter5.html#pipe-operator"><i class="fa fa-check"></i><b>5.3</b> 2.3. Pipe (%&gt;%) operator</a>
+<li class="chapter" data-level="5.3" data-path="chapter5.html"><a href="chapter5.html#pipe-operator"><i class="fa fa-check"></i><b>5.3</b> Pipe (%&gt;%) operator</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="chapter5.html"><a href="chapter5.html#select-function"><i class="fa fa-check"></i><b>5.3.1</b> 2.4. select function</a></li>
-<li class="chapter" data-level="5.3.2" data-path="chapter5.html"><a href="chapter5.html#subset-rows-using-their-positions-with-slice"><i class="fa fa-check"></i><b>5.3.2</b> 2.6. Subset rows using their positions with slice()</a></li>
-<li class="chapter" data-level="5.3.3" data-path="chapter5.html"><a href="chapter5.html#sorting-with-arrange"><i class="fa fa-check"></i><b>5.3.3</b> 2.7. Sorting with arrange()</a></li>
-<li class="chapter" data-level="5.3.4" data-path="chapter5.html"><a href="chapter5.html#create-new-variables-with-mutate"><i class="fa fa-check"></i><b>5.3.4</b> 2.7. Create new variables with mutate()</a></li>
-<li class="chapter" data-level="5.3.5" data-path="chapter5.html"><a href="chapter5.html#renaming-columns-with-rename"><i class="fa fa-check"></i><b>5.3.5</b> 2.8. Renaming columns with rename()</a></li>
-<li class="chapter" data-level="5.3.6" data-path="chapter5.html"><a href="chapter5.html#calculations-with-group_by-summarise"><i class="fa fa-check"></i><b>5.3.6</b> 2.9. Calculations with group_by() + summarise()</a></li>
+<li class="chapter" data-level="5.3.1" data-path="chapter5.html"><a href="chapter5.html#select-function"><i class="fa fa-check"></i><b>5.3.1</b> select() function</a></li>
+<li class="chapter" data-level="5.3.2" data-path="chapter5.html"><a href="chapter5.html#subset-rows-using-their-positions-with-slice"><i class="fa fa-check"></i><b>5.3.2</b> Subset rows using their positions with slice()</a></li>
+<li class="chapter" data-level="5.3.3" data-path="chapter5.html"><a href="chapter5.html#sorting-with-arrange"><i class="fa fa-check"></i><b>5.3.3</b> Sorting with arrange()</a></li>
+<li class="chapter" data-level="5.3.4" data-path="chapter5.html"><a href="chapter5.html#create-new-variables-with-mutate"><i class="fa fa-check"></i><b>5.3.4</b> Create new variables with mutate()</a></li>
+<li class="chapter" data-level="5.3.5" data-path="chapter5.html"><a href="chapter5.html#renaming-columns-with-rename"><i class="fa fa-check"></i><b>5.3.5</b> Renaming columns with rename()</a></li>
+<li class="chapter" data-level="5.3.6" data-path="chapter5.html"><a href="chapter5.html#calculations-with-group_by-summarise"><i class="fa fa-check"></i><b>5.3.6</b> Calculations with group_by() + summarise()</a></li>
 <li class="chapter" data-level="5.3.7" data-path="chapter5.html"><a href="chapter5.html#task-on-credits"><i class="fa fa-check"></i><b>5.3.7</b> Task on Credits</a></li>
-<li class="chapter" data-level="5.3.8" data-path="chapter5.html"><a href="chapter5.html#binding-rows-and-columns"><i class="fa fa-check"></i><b>5.3.8</b> 2.10. Binding rows and columns</a></li>
-<li class="chapter" data-level="5.3.9" data-path="chapter5.html"><a href="chapter5.html#joining-data"><i class="fa fa-check"></i><b>5.3.9</b> 2.11. Join()ing data</a></li>
-<li class="chapter" data-level="5.3.10" data-path="chapter5.html"><a href="chapter5.html#data-cleaning-with-gather"><i class="fa fa-check"></i><b>5.3.10</b> 2.12. Data cleaning with gather()</a></li>
+<li class="chapter" data-level="5.3.8" data-path="chapter5.html"><a href="chapter5.html#binding-rows-and-columns"><i class="fa fa-check"></i><b>5.3.8</b> Binding rows and columns</a></li>
+<li class="chapter" data-level="5.3.9" data-path="chapter5.html"><a href="chapter5.html#joining-data"><i class="fa fa-check"></i><b>5.3.9</b> Join()ing data</a></li>
+<li class="chapter" data-level="5.3.10" data-path="chapter5.html"><a href="chapter5.html#data-cleaning-with-gather"><i class="fa fa-check"></i><b>5.3.10</b> Data cleaning with gather()</a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="chapter5.html"><a href="chapter5.html#refences"><i class="fa fa-check"></i><b>5.4</b> Refences</a></li>
 </ul></li>
@@ -351,7 +348,7 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="chapter5" class="section level1" number="5">
-<h1><span class="header-section-number">Розділ 5</span> 5. Прийоми маніпулювання даними (з використанням можливостей бібліотеки dplyr)</h1>
+<h1><span class="header-section-number">Розділ 5</span> Прийоми маніпулювання даними (з використанням можливостей бібліотеки dplyr)</h1>
 <div class="alert alert-danger">
 <p><i class="far fa-bell fa-alert fa-2x"></i>
 Матеріали курсу у процесі навповнення. Слідкуйте за оновленнями</p>
@@ -368,7 +365,7 @@ div.csl-indent {
 </ul>
 <hr />
 <div id="whats-dplyr" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> 1.What’s dplyr</h2>
+<h2><span class="header-section-number">5.1</span> What’s dplyr</h2>
 <p>The dplyr package is one of the most powerful and popular package in R for data manipulation.</p>
 <p>Working with data:</p>
 <ul class="task-list">
@@ -416,9 +413,9 @@ It uses efficient backends, so you spend less time waiting for the computer.</li
 <hr />
 </div>
 <div id="exploring-data-with-dplyr" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> 2. Exploring data with dplyr</h2>
+<h2><span class="header-section-number">5.2</span> Exploring data with dplyr</h2>
 <div id="funtions-and-dataset-explore" class="section level3" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> 2.1. Funtions and dataset explore</h3>
+<h3><span class="header-section-number">5.2.1</span> Funtions and dataset explore</h3>
 <p>For the next sample we are going to use <code>gapminder</code> dataset.</p>
 <p>The gapminder data frame include six variables: <code>country</code>, <code>continent</code>, <code>year</code>, <code>lifeExp</code> - life expectancy at birth, <code>pop</code> - total population, <code>gdpPercap</code> - per-capita GDP.</p>
 <p>Per-capita GDP (Gross domestic product) is given in units of international dollars, a hypothetical unit of currency that has the same purchasing power parity that the U.S. dollar had in the United States at a given point in time – 2005, in this case.</p>
@@ -484,7 +481,7 @@ It uses efficient backends, so you spend less time waiting for the computer.</li
 ## </code></pre>
 </div>
 <div id="filter-function" class="section level3" number="5.2.2">
-<h3><span class="header-section-number">5.2.2</span> 2.2. filter() function</h3>
+<h3><span class="header-section-number">5.2.2</span> filter() function</h3>
 <div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb691-1"><a href="chapter5.html#cb691-1" aria-hidden="true" tabindex="-1"></a>austria <span class="ot">&lt;-</span> <span class="fu">filter</span>(gapminder, country <span class="sc">==</span> <span class="st">&quot;Austria&quot;</span>)</span>
 <span id="cb691-2"><a href="chapter5.html#cb691-2" aria-hidden="true" tabindex="-1"></a>austria</span></code></pre></div>
 <pre><code>## # A tibble: 12 x 6
@@ -545,7 +542,7 @@ It uses efficient backends, so you spend less time waiting for the computer.</li
 </div>
 </div>
 <div id="pipe-operator" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> 2.3. Pipe (%&gt;%) operator</h2>
+<h2><span class="header-section-number">5.3</span> Pipe (%&gt;%) operator</h2>
 <p><code>%&gt;%</code> is pipe operator. The pipe operator takes the thing on the left-hand-side and pipes it into the function call on the right-hand-side – literally, drops it in as the first argument.</p>
 <blockquote>
 <p>In R version before 4.1.0 pipe %&gt;% operator is not a language build-in and you should install magrittr package:</p>
@@ -606,7 +603,7 @@ It uses efficient backends, so you spend less time waiting for the computer.</li
 ## 2 Austria Europe     2007    79.8 8199783    36126.</code></pre>
 <hr />
 <div id="select-function" class="section level3" number="5.3.1">
-<h3><span class="header-section-number">5.3.1</span> 2.4. select function</h3>
+<h3><span class="header-section-number">5.3.1</span> select() function</h3>
 <p>Use select() to subset the data on variables/columns by names or index. You also can define order of columns with select().</p>
 <div class="sourceCode" id="cb711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb711-1"><a href="chapter5.html#cb711-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
 <span id="cb711-2"><a href="chapter5.html#cb711-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, country, pop) <span class="sc">%&gt;%</span></span>
@@ -708,7 +705,7 @@ It uses efficient backends, so you spend less time waiting for the computer.</li
 </colgroup>
 <tbody>
 <tr class="odd">
-<td>### 2.5. Random sampling</td>
+<td>### Random sampling</td>
 </tr>
 <tr class="even">
 <td>The sample_n() function selects random rows from a data frame</td>
@@ -717,7 +714,7 @@ It uses efficient backends, so you spend less time waiting for the computer.</li
 <td><code>r gapminder %&gt;% sample_n(5)</code></td>
 </tr>
 <tr class="even">
-<td><code>## # A tibble: 5 x 6 ##   country         continent  year lifeExp     pop gdpPercap ##   &lt;fct&gt;           &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt; ## 1 Senegal         Africa     1977    48.9 5260855     1562. ## 2 Paraguay        Americas   2007    71.8 6667147     4173. ## 3 Bulgaria        Europe     1977    70.8 8797022     7612. ## 4 Cambodia        Asia       1952    39.4 4693836      368. ## 5 Slovak Republic Europe     1957    67.4 3844277     6093.</code></td>
+<td><code>## # A tibble: 5 x 6 ##   country             continent  year lifeExp      pop gdpPercap ##   &lt;fct&gt;               &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt; ## 1 France              Europe     1972    72.4 51732000    16107. ## 2 Trinidad and Tobago Americas   1962    64.9   887498     4998. ## 3 Vietnam             Asia       1967    47.8 39463910      637. ## 4 Algeria             Africa     2007    72.3 33333216     6223. ## 5 Switzerland         Europe     1972    73.8  6401400    27195.</code></td>
 </tr>
 <tr class="odd">
 <td>If you want make pseudo-random generation reprodusable use set.seed(). Seed is start point of random generation. Different seeds give different output.</td>
@@ -738,7 +735,7 @@ It uses efficient backends, so you spend less time waiting for the computer.</li
 </table>
 </div>
 <div id="subset-rows-using-their-positions-with-slice" class="section level3" number="5.3.2">
-<h3><span class="header-section-number">5.3.2</span> 2.6. Subset rows using their positions with slice()</h3>
+<h3><span class="header-section-number">5.3.2</span> Subset rows using their positions with slice()</h3>
 <p><strong>Description</strong></p>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" checked="" />
@@ -831,7 +828,7 @@ slice_min() and slice_max() select rows with highest or lowest values of a varia
 <hr />
 </div>
 <div id="sorting-with-arrange" class="section level3" number="5.3.3">
-<h3><span class="header-section-number">5.3.3</span> 2.7. Sorting with arrange()</h3>
+<h3><span class="header-section-number">5.3.3</span> Sorting with arrange()</h3>
 <p>arrange(.data, …) function order rows by values of a column or columns (low to high)You can use with desc() to order from high to low.</p>
 <p>For example, we need to select top 10 countries in 2002 by lifeExp variable.</p>
 <div class="sourceCode" id="cb739"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb739-1"><a href="chapter5.html#cb739-1" aria-hidden="true" tabindex="-1"></a>data2002 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
@@ -858,7 +855,7 @@ slice_min() and slice_max() select rows with highest or lowest values of a varia
 <hr />
 </div>
 <div id="create-new-variables-with-mutate" class="section level3" number="5.3.4">
-<h3><span class="header-section-number">5.3.4</span> 2.7. Create new variables with mutate()</h3>
+<h3><span class="header-section-number">5.3.4</span> Create new variables with mutate()</h3>
 <p>mutate(.data, …) compute new column(s). Lets compute new column for data2002 <span class="math inline">\(gdpTotal = gdpPercap * pop / 1000000\)</span>.</p>
 <div class="sourceCode" id="cb742"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb742-1"><a href="chapter5.html#cb742-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
 <span id="cb742-2"><a href="chapter5.html#cb742-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">gdpTotal =</span> gdpPercap <span class="sc">*</span> pop) <span class="sc">%&gt;%</span></span>
@@ -933,7 +930,7 @@ slice_min() and slice_max() select rows with highest or lowest values of a varia
 <hr />
 </div>
 <div id="renaming-columns-with-rename" class="section level3" number="5.3.5">
-<h3><span class="header-section-number">5.3.5</span> 2.8. Renaming columns with rename()</h3>
+<h3><span class="header-section-number">5.3.5</span> Renaming columns with rename()</h3>
 <p>rename(.data, …) rename columns. Let’s rename column pop to poulation:</p>
 <div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="chapter5.html#cb750-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
 <span id="cb750-2"><a href="chapter5.html#cb750-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">population =</span> pop) <span class="sc">%&gt;%</span></span>
@@ -954,7 +951,7 @@ slice_min() and slice_max() select rows with highest or lowest values of a varia
 <hr />
 </div>
 <div id="calculations-with-group_by-summarise" class="section level3" number="5.3.6">
-<h3><span class="header-section-number">5.3.6</span> 2.9. Calculations with group_by() + summarise()</h3>
+<h3><span class="header-section-number">5.3.6</span> Calculations with group_by() + summarise()</h3>
 <p>group_by(.data, …, add = FALSE) returns copy of table grouped by defined columns.</p>
 <p>Let’s find average by lifeExp for each continent in 2002 (ouput is continent, lifeExpAvg2002, countriesCount, year = 2002):</p>
 <div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="chapter5.html#cb752-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
@@ -1033,7 +1030,7 @@ summarise_if() - Apply funs to all cols of one type.</li>
 <hr />
 </div>
 <div id="binding-rows-and-columns" class="section level3" number="5.3.8">
-<h3><span class="header-section-number">5.3.8</span> 2.10. Binding rows and columns</h3>
+<h3><span class="header-section-number">5.3.8</span> Binding rows and columns</h3>
 <p>bind_rows(.data, …) helps to unite two dataframes with the same columns order and names.</p>
 <p>So, if we need add one data frame to an other vertically (bind rows) we shoul use bind_rows:</p>
 <div class="sourceCode" id="cb769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb769-1"><a href="chapter5.html#cb769-1" aria-hidden="true" tabindex="-1"></a>grouped_data2002 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span></span>
@@ -1129,7 +1126,7 @@ grouped_data
 <hr />
 </div>
 <div id="joining-data" class="section level3" number="5.3.9">
-<h3><span class="header-section-number">5.3.9</span> 2.11. Join()ing data</h3>
+<h3><span class="header-section-number">5.3.9</span> Join()ing data</h3>
 <p>To solve previous problem you can use set of join()-functions. left_join() can solve our previous example:</p>
 <div class="sourceCode" id="cb786"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb786-1"><a href="chapter5.html#cb786-1" aria-hidden="true" tabindex="-1"></a>grouped_data2002pop <span class="ot">&lt;-</span> grouped_data2002pop <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(totalPop)</span>
 <span id="cb786-2"><a href="chapter5.html#cb786-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1229,7 +1226,7 @@ grouped_data
 <hr />
 </div>
 <div id="data-cleaning-with-gather" class="section level3" number="5.3.10">
-<h3><span class="header-section-number">5.3.10</span> 2.12. Data cleaning with gather()</h3>
+<h3><span class="header-section-number">5.3.10</span> Data cleaning with gather()</h3>
 <p>Some times your data is not in tidy format. Peole can collect data year by year in each column. It’s problem to use such data for feature engeniering and building prediction models. Let’s generate such data sample (quaterly salary of some people).</p>
 <div class="sourceCode" id="cb808"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb808-1"><a href="chapter5.html#cb808-1" aria-hidden="true" tabindex="-1"></a>not_good_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Name =</span> <span class="fu">c</span>(<span class="st">&quot;Nick&quot;</span>, <span class="st">&quot;Jake&quot;</span>, <span class="st">&quot;Anna&quot;</span>, <span class="st">&quot;Jane&quot;</span>, <span class="st">&quot;Dina&quot;</span>),</span>
 <span id="cb808-2"><a href="chapter5.html#cb808-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">q1_2021 =</span> <span class="fu">c</span>(<span class="dv">12442</span>, <span class="dv">22131</span>, <span class="dv">21343</span>, <span class="dv">22111</span>, <span class="dv">14123</span>),</span>

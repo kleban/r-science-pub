@@ -1,19 +1,7 @@
 # Базові конструкції мови R: типи та структури даних. Частина 2 {#chapter3}
 
----
-
 Автори: Новоселецький Олександр, Юрій Клебан
 
----
-
-## План {-}
-
-- [Набори даних](#chapter31)
-- [Вектори (vectors)](#chapter32)
-    - [Поняття та спосіб представлення](#chapter321)
-    - [Оголошення векторів](#chapter322)
-    - [Операції над векторами](#chapter323)
-  
 ---
 
 ## Набори даних {#chapter31}
@@ -749,7 +737,7 @@ x
 ```
 
 ```
-##  [1] 55 60 21 31 83 42 20 46 18 70
+##  [1] 79 91 23 45 56 84 31 28 42 68
 ```
 
 
@@ -759,7 +747,7 @@ x
 ```
 
 ```
-##  [1] NA 60 NA NA NA 42 20 46 18 70
+##  [1] NA NA NA NA 56 84 NA 28 42 68
 ```
 
 
@@ -769,13 +757,12 @@ x
 ```
 
 ```
-##  [1] 42.66667 60.00000 42.66667 42.66667 42.66667 42.00000 20.00000 46.00000
-##  [9] 18.00000 70.00000
+##  [1] 55.6 55.6 55.6 55.6 56.0 84.0 55.6 28.0 42.0 68.0
 ```
 
 ---
 
-## 2. Matrices
+## Matrices
 
 ### Creating matrices
 
@@ -1084,7 +1071,7 @@ m[, ncol(m)] # last colum
 
 ---
 
-## 3. Factors
+## Factors
 
 Factors in R programming allow you to represent a vector of values as categorical values, rather than just a set of text data or numbers. The advantage of the categorical data type is that the element can take only a limited number of values, and not any value that allows the data type.
 
@@ -1212,7 +1199,7 @@ as.numeric(cities) # you cannot convert characters vector to numerics
 
 ---
 
-## 4. Dataframes
+## Dataframes
 
 Data frames are the most popular data structure in R, becouse it allows collect data with different columns type in one object and quickly manipulate it.
 
@@ -1241,7 +1228,7 @@ data.frame converts each of its arguments to a data frame by calling as.data.fra
 
 ---
 
-## Creating Data Frames
+### Creating Data Frames
 
 Data frames are usually created by reading in a dataset from file, scraping from websites. However, data frames can also be created explicitly with the data.frame() function or they can be coerced from other types of objects like lists. In this case I’ll create a simple data frame df and assess its basic structure:
 
@@ -1755,7 +1742,6 @@ You can also sor by multiple columns with order(column1, column2) or order(colum
 
 ### Manipulating data.frames
 
-
 ---
 
 ### Tasks on data.frames
@@ -1780,9 +1766,9 @@ head(df)
 
 ```
 ##   X E  Y
-## 1 1 5 NA
-## 2 2 1 NA
-## 3 3 3 NA
+## 1 1 3 NA
+## 2 2 4 NA
+## 3 3 2 NA
 ## 4 4 2 NA
 ## 5 5 3 NA
 ## 6 6 1 NA
@@ -1796,9 +1782,9 @@ head(df)
 
 ```
 ##   X E  Y
-## 1 1 5  6
-## 2 2 1  5
-## 3 3 3 12
+## 1 1 3  4
+## 2 2 4  8
+## 3 3 2 11
 ## 4 4 2 18
 ## 5 5 3 28
 ## 6 6 1 37
@@ -2039,7 +2025,7 @@ mean(not_married$Income)
 
 ---
 
-## 5. Lists
+## Lists
 
 Lists are the R objects which contain elements of different types like − numbers, strings, vectors and another list inside it. A list can also contain a matrix or a function as its elements. List is created using list() function.
 
@@ -2585,7 +2571,7 @@ names(vector_info(x))
 
 ---
 
-## 6. Apply functions family
+## Apply functions family
 
 You can use a set of function for manipulating, accesing different data structures such as data.frame, list.
 
@@ -2753,18 +2739,33 @@ list_demo
 ```r
 # lets select the 2nd row of each data frame
 
-lapply(list_demo, "[", , 2)
+lapply(list_demo, "[", 2)
 ```
 
 ```
 ## [[1]]
-## [1] 101 102 103 104 105
+##   Value2
+## 1    101
+## 2    102
+## 3    103
+## 4    104
+## 5    105
 ## 
 ## [[2]]
-## [1] 201 202 203 204 205
+##   Value2
+## 1    201
+## 2    202
+## 3    203
+## 4    204
+## 5    205
 ## 
 ## [[3]]
-## [1] 301 302 303 304 305
+##   Value2
+## 1    301
+## 2    302
+## 3    303
+## 4    304
+## 5    305
 ```
 
 ```r
