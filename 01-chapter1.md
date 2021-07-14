@@ -268,7 +268,7 @@ dir()
 ## [22] "favicon.ico"            "images"                 "inc"                   
 ## [25] "index.md"               "index.Rmd"              "packages.bib"          
 ## [28] "preamble.tex"           "r-science.log"          "r-science.rds"         
-## [31] "README.md"              "render_commands"        "render51b043e751e2.rds"
+## [31] "README.md"              "render_commands"        "render51b0325b45e9.rds"
 ## [34] "RScience.Rproj"         "sss.R"                  "tmp.R"                 
 ## [37] "tmp.RData"
 ```
@@ -288,7 +288,7 @@ list.files()
 ## [22] "favicon.ico"            "images"                 "inc"                   
 ## [25] "index.md"               "index.Rmd"              "packages.bib"          
 ## [28] "preamble.tex"           "r-science.log"          "r-science.rds"         
-## [31] "README.md"              "render_commands"        "render51b043e751e2.rds"
+## [31] "README.md"              "render_commands"        "render51b0325b45e9.rds"
 ## [34] "RScience.Rproj"         "sss.R"                  "tmp.R"                 
 ## [37] "tmp.RData"
 ```
@@ -406,7 +406,7 @@ vtr
 ```
 
 ```
-##  [1] 5 5 3 5 4 3 5 3 5 5 2 4 3 4 4 2 2 1 5 3
+##  [1] 2 4 4 1 2 3 2 4 1 3 5 4 4 2 4 3 2 1 1 2
 ```
 
 <div class="alert alert-danger">
@@ -427,7 +427,7 @@ print(paste0("Sum: ", vtr_sum))
 ```
 
 ```
-## [1] "Sum: 73"
+## [1] "Sum: 54"
 ```
 
 ```r
@@ -435,7 +435,7 @@ print(paste0("Mean: ", vtr_mean))
 ```
 
 ```
-## [1] "Mean: 3.65"
+## [1] "Mean: 2.7"
 ```
 
 Виведемо гістограму:

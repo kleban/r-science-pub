@@ -1,4 +1,4 @@
-# 8.	Представлення результатів аналізу даних. {#chapter8}
+# Представлення результатів аналізу даних. {#chapter8}
 
 <div class="alert alert-danger">
 <i class="far fa-bell fa-alert fa-2x"></i>

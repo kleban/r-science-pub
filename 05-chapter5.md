@@ -564,13 +564,13 @@ gapminder %>% sample_n(5)
 
 ```
 ## # A tibble: 5 x 6
-##   country             continent  year lifeExp      pop gdpPercap
-##   <fct>               <fct>     <int>   <dbl>    <int>     <dbl>
-## 1 France              Europe     1972    72.4 51732000    16107.
-## 2 Trinidad and Tobago Americas   1962    64.9   887498     4998.
-## 3 Vietnam             Asia       1967    47.8 39463910      637.
-## 4 Algeria             Africa     2007    72.3 33333216     6223.
-## 5 Switzerland         Europe     1972    73.8  6401400    27195.
+##   country      continent  year lifeExp      pop gdpPercap
+##   <fct>        <fct>     <int>   <dbl>    <int>     <dbl>
+## 1 Korea, Rep.  Asia       1952    47.5 20947571     1031.
+## 2 Paraguay     Americas   1952    62.6  1555876     1952.
+## 3 Lesotho      Africa     1987    57.2  1599200      774.
+## 4 Indonesia    Asia       1962    42.5 99028000      849.
+## 5 Burkina Faso Africa     1962    37.8  4919632      723.
 ```
 
 
