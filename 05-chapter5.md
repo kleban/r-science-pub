@@ -564,13 +564,13 @@ gapminder %>% sample_n(5)
 
 ```
 ## # A tibble: 5 x 6
-##   country      continent  year lifeExp      pop gdpPercap
-##   <fct>        <fct>     <int>   <dbl>    <int>     <dbl>
-## 1 Korea, Rep.  Asia       1952    47.5 20947571     1031.
-## 2 Paraguay     Americas   1952    62.6  1555876     1952.
-## 3 Lesotho      Africa     1987    57.2  1599200      774.
-## 4 Indonesia    Asia       1962    42.5 99028000      849.
-## 5 Burkina Faso Africa     1962    37.8  4919632      723.
+##   country       continent  year lifeExp       pop gdpPercap
+##   <fct>         <fct>     <int>   <dbl>     <int>     <dbl>
+## 1 United States Americas   2002    77.3 287675526    39097.
+## 2 Myanmar       Asia       1957    41.9  21731844      350 
+## 3 Ecuador       Americas   2002    74.2  12921234     5773.
+## 4 Albania       Europe     1952    55.2   1282697     1601.
+## 5 Slovenia      Europe     1992    73.6   1999210    14215.
 ```
 
 

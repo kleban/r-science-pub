@@ -24,7 +24,7 @@
 <meta name="author" content="Юрій Клебан" />
 
 
-<meta name="date" content="2021-07-14" />
+<meta name="date" content="2021-07-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -834,54 +834,54 @@ data &lt;- read_csv2(file = &quot;data/telecom_users.csv&quot;, … )</code></pr
 <span id="cb632-2"><a href="chapter4.html#cb632-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data[, <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>] <span class="co"># let&#39;s left only 1:7 columns (from Open time to Close time)</span></span>
 <span id="cb632-3"><a href="chapter4.html#cb632-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div>
 <pre><code>##      [,1]            [,2]             [,3]             [,4]            
-## [1,] &quot;1.625904e+12&quot;  &quot;33766.01000000&quot; &quot;33950.00000000&quot; &quot;33686.00000000&quot;
-## [2,] &quot;1625907600000&quot; &quot;33761.72000000&quot; &quot;33900.00000000&quot; &quot;33711.95000000&quot;
-## [3,] &quot;1625911200000&quot; &quot;33735.98000000&quot; &quot;33800.00000000&quot; &quot;33599.98000000&quot;
-## [4,] &quot;1625914800000&quot; &quot;33624.09000000&quot; &quot;33911.82000000&quot; &quot;33565.00000000&quot;
-## [5,] &quot;1625918400000&quot; &quot;33793.95000000&quot; &quot;33943.40000000&quot; &quot;33744.40000000&quot;
-## [6,] &quot;1.625922e+12&quot;  &quot;33858.28000000&quot; &quot;33898.17000000&quot; &quot;33634.16000000&quot;
+## [1,] &quot;1625979600000&quot; &quot;33460.70000000&quot; &quot;33636.85000000&quot; &quot;33419.08000000&quot;
+## [2,] &quot;1625983200000&quot; &quot;33590.51000000&quot; &quot;33642.74000000&quot; &quot;33420.00000000&quot;
+## [3,] &quot;1625986800000&quot; &quot;33461.50000000&quot; &quot;33555.55000000&quot; &quot;33372.06000000&quot;
+## [4,] &quot;1625990400000&quot; &quot;33508.82000000&quot; &quot;33800.00000000&quot; &quot;33424.84000000&quot;
+## [5,] &quot;1.625994e+12&quot;  &quot;33690.69000000&quot; &quot;33870.00000000&quot; &quot;33598.75000000&quot;
+## [6,] &quot;1625997600000&quot; &quot;33693.45000000&quot; &quot;33839.94000000&quot; &quot;33614.07000000&quot;
 ##      [,5]             [,6]            [,7]           
-## [1,] &quot;33762.79000000&quot; &quot;1586.69013400&quot; &quot;1625907599999&quot;
-## [2,] &quot;33732.57000000&quot; &quot;988.18051900&quot;  &quot;1625911199999&quot;
-## [3,] &quot;33624.08000000&quot; &quot;1314.38690600&quot; &quot;1625914799999&quot;
-## [4,] &quot;33793.94000000&quot; &quot;1674.95679800&quot; &quot;1625918399999&quot;
-## [5,] &quot;33861.02000000&quot; &quot;1213.69747000&quot; &quot;1625921999999&quot;
-## [6,] &quot;33700.31000000&quot; &quot;1331.15612700&quot; &quot;1625925599999&quot;</code></pre>
+## [1,] &quot;33590.53000000&quot; &quot;791.39773200&quot;  &quot;1625983199999&quot;
+## [2,] &quot;33463.74000000&quot; &quot;783.35875000&quot;  &quot;1625986799999&quot;
+## [3,] &quot;33508.83000000&quot; &quot;808.25885800&quot;  &quot;1625990399999&quot;
+## [4,] &quot;33690.69000000&quot; &quot;1425.42214600&quot; &quot;1625993999999&quot;
+## [5,] &quot;33693.43000000&quot; &quot;1544.08617600&quot; &quot;1625997599999&quot;
+## [6,] &quot;33750.79000000&quot; &quot;1030.15708000&quot; &quot;1626001199999&quot;</code></pre>
 <div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb634-1"><a href="chapter4.html#cb634-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(data) <span class="co"># check data type</span></span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="chapter4.html#cb636-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(data) <span class="co"># convert to dataframe</span></span>
 <span id="cb636-2"><a href="chapter4.html#cb636-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div>
 <pre><code>##              V1             V2             V3             V4             V5
-## 1  1.625904e+12 33766.01000000 33950.00000000 33686.00000000 33762.79000000
-## 2 1625907600000 33761.72000000 33900.00000000 33711.95000000 33732.57000000
-## 3 1625911200000 33735.98000000 33800.00000000 33599.98000000 33624.08000000
-## 4 1625914800000 33624.09000000 33911.82000000 33565.00000000 33793.94000000
-## 5 1625918400000 33793.95000000 33943.40000000 33744.40000000 33861.02000000
-## 6  1.625922e+12 33858.28000000 33898.17000000 33634.16000000 33700.31000000
+## 1 1625979600000 33460.70000000 33636.85000000 33419.08000000 33590.53000000
+## 2 1625983200000 33590.51000000 33642.74000000 33420.00000000 33463.74000000
+## 3 1625986800000 33461.50000000 33555.55000000 33372.06000000 33508.83000000
+## 4 1625990400000 33508.82000000 33800.00000000 33424.84000000 33690.69000000
+## 5  1.625994e+12 33690.69000000 33870.00000000 33598.75000000 33693.43000000
+## 6 1625997600000 33693.45000000 33839.94000000 33614.07000000 33750.79000000
 ##              V6            V7
-## 1 1586.69013400 1625907599999
-## 2  988.18051900 1625911199999
-## 3 1314.38690600 1625914799999
-## 4 1674.95679800 1625918399999
-## 5 1213.69747000 1625921999999
-## 6 1331.15612700 1625925599999</code></pre>
+## 1  791.39773200 1625983199999
+## 2  783.35875000 1625986799999
+## 3  808.25885800 1625990399999
+## 4 1425.42214600 1625993999999
+## 5 1544.08617600 1625997599999
+## 6 1030.15708000 1626001199999</code></pre>
 <div class="sourceCode" id="cb638"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb638-1"><a href="chapter4.html#cb638-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fix columns names</span></span>
 <span id="cb638-2"><a href="chapter4.html#cb638-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(data) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Open_time&quot;</span>, <span class="st">&quot;Open&quot;</span>, <span class="st">&quot;High&quot;</span>, <span class="st">&quot;Low&quot;</span>, <span class="st">&quot;Close&quot;</span>, <span class="st">&quot;Volume&quot;</span>, <span class="st">&quot;Close_time&quot;</span>)</span>
 <span id="cb638-3"><a href="chapter4.html#cb638-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data) <span class="co"># looks better, but columns are characters still</span></span></code></pre></div>
 <pre><code>##       Open_time           Open           High            Low          Close
-## 1  1.625904e+12 33766.01000000 33950.00000000 33686.00000000 33762.79000000
-## 2 1625907600000 33761.72000000 33900.00000000 33711.95000000 33732.57000000
-## 3 1625911200000 33735.98000000 33800.00000000 33599.98000000 33624.08000000
-## 4 1625914800000 33624.09000000 33911.82000000 33565.00000000 33793.94000000
-## 5 1625918400000 33793.95000000 33943.40000000 33744.40000000 33861.02000000
-## 6  1.625922e+12 33858.28000000 33898.17000000 33634.16000000 33700.31000000
+## 1 1625979600000 33460.70000000 33636.85000000 33419.08000000 33590.53000000
+## 2 1625983200000 33590.51000000 33642.74000000 33420.00000000 33463.74000000
+## 3 1625986800000 33461.50000000 33555.55000000 33372.06000000 33508.83000000
+## 4 1625990400000 33508.82000000 33800.00000000 33424.84000000 33690.69000000
+## 5  1.625994e+12 33690.69000000 33870.00000000 33598.75000000 33693.43000000
+## 6 1625997600000 33693.45000000 33839.94000000 33614.07000000 33750.79000000
 ##          Volume    Close_time
-## 1 1586.69013400 1625907599999
-## 2  988.18051900 1625911199999
-## 3 1314.38690600 1625914799999
-## 4 1674.95679800 1625918399999
-## 5 1213.69747000 1625921999999
-## 6 1331.15612700 1625925599999</code></pre>
+## 1  791.39773200 1625983199999
+## 2  783.35875000 1625986799999
+## 3  808.25885800 1625990399999
+## 4 1425.42214600 1625993999999
+## 5 1544.08617600 1625997599999
+## 6 1030.15708000 1626001199999</code></pre>
 <div class="sourceCode" id="cb640"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb640-1"><a href="chapter4.html#cb640-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(data[,<span class="dv">1</span>]) <span class="co"># check 1st column type is numeric</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <div class="sourceCode" id="cb642"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb642-1"><a href="chapter4.html#cb642-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(data[,<span class="dv">2</span>]) <span class="co"># check 2nd column type is numeric</span></span></code></pre></div>
@@ -889,46 +889,46 @@ data &lt;- read_csv2(file = &quot;data/telecom_users.csv&quot;, … )</code></pr
 <div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="chapter4.html#cb644-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">sapply</span>(data, as.numeric)) <span class="co"># convert all columns to numeric</span></span>
 <span id="cb644-2"><a href="chapter4.html#cb644-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data) <span class="co"># good, its double now</span></span></code></pre></div>
 <pre><code>##      Open_time     Open     High      Low    Close    Volume   Close_time
-## 1 1.625904e+12 33766.01 33950.00 33686.00 33762.79 1586.6901 1.625908e+12
-## 2 1.625908e+12 33761.72 33900.00 33711.95 33732.57  988.1805 1.625911e+12
-## 3 1.625911e+12 33735.98 33800.00 33599.98 33624.08 1314.3869 1.625915e+12
-## 4 1.625915e+12 33624.09 33911.82 33565.00 33793.94 1674.9568 1.625918e+12
-## 5 1.625918e+12 33793.95 33943.40 33744.40 33861.02 1213.6975 1.625922e+12
-## 6 1.625922e+12 33858.28 33898.17 33634.16 33700.31 1331.1561 1.625926e+12</code></pre>
+## 1 1.625980e+12 33460.70 33636.85 33419.08 33590.53  791.3977 1.625983e+12
+## 2 1.625983e+12 33590.51 33642.74 33420.00 33463.74  783.3587 1.625987e+12
+## 3 1.625987e+12 33461.50 33555.55 33372.06 33508.83  808.2589 1.625990e+12
+## 4 1.625990e+12 33508.82 33800.00 33424.84 33690.69 1425.4221 1.625994e+12
+## 5 1.625994e+12 33690.69 33870.00 33598.75 33693.43 1544.0862 1.625998e+12
+## 6 1.625998e+12 33693.45 33839.94 33614.07 33750.79 1030.1571 1.626001e+12</code></pre>
 <p>Final stage is to convert <code>Open_time</code> and <code>Close_time</code> to dates.</p>
 <div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="chapter4.html#cb646-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Open_time <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(data<span class="sc">$</span>Open_time<span class="sc">/</span><span class="fl">1e3</span>, <span class="at">origin =</span> <span class="st">&#39;1970-01-01&#39;</span>)</span>
 <span id="cb646-2"><a href="chapter4.html#cb646-2" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Close_time <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(data<span class="sc">$</span>Close_time<span class="sc">/</span><span class="fl">1e3</span>, <span class="at">origin =</span> <span class="st">&#39;1970-01-01&#39;</span>)</span>
 <span id="cb646-3"><a href="chapter4.html#cb646-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb646-4"><a href="chapter4.html#cb646-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data) </span></code></pre></div>
 <pre><code>##             Open_time     Open     High      Low    Close    Volume
-## 1 2021-07-10 11:00:00 33766.01 33950.00 33686.00 33762.79 1586.6901
-## 2 2021-07-10 12:00:00 33761.72 33900.00 33711.95 33732.57  988.1805
-## 3 2021-07-10 13:00:00 33735.98 33800.00 33599.98 33624.08 1314.3869
-## 4 2021-07-10 14:00:00 33624.09 33911.82 33565.00 33793.94 1674.9568
-## 5 2021-07-10 15:00:00 33793.95 33943.40 33744.40 33861.02 1213.6975
-## 6 2021-07-10 16:00:00 33858.28 33898.17 33634.16 33700.31 1331.1561
+## 1 2021-07-11 08:00:00 33460.70 33636.85 33419.08 33590.53  791.3977
+## 2 2021-07-11 09:00:00 33590.51 33642.74 33420.00 33463.74  783.3587
+## 3 2021-07-11 10:00:00 33461.50 33555.55 33372.06 33508.83  808.2589
+## 4 2021-07-11 11:00:00 33508.82 33800.00 33424.84 33690.69 1425.4221
+## 5 2021-07-11 12:00:00 33690.69 33870.00 33598.75 33693.43 1544.0862
+## 6 2021-07-11 13:00:00 33693.45 33839.94 33614.07 33750.79 1030.1571
 ##            Close_time
-## 1 2021-07-10 11:59:59
-## 2 2021-07-10 12:59:59
-## 3 2021-07-10 13:59:59
-## 4 2021-07-10 14:59:59
-## 5 2021-07-10 15:59:59
-## 6 2021-07-10 16:59:59</code></pre>
+## 1 2021-07-11 08:59:59
+## 2 2021-07-11 09:59:59
+## 3 2021-07-11 10:59:59
+## 4 2021-07-11 11:59:59
+## 5 2021-07-11 12:59:59
+## 6 2021-07-11 13:59:59</code></pre>
 <div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="chapter4.html#cb648-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(data) <span class="co"># check last records</span></span></code></pre></div>
 <pre><code>##               Open_time     Open     High      Low    Close    Volume
-## 95  2021-07-14 09:00:00 31807.01 31942.35 31754.55 31835.47 1632.8038
-## 96  2021-07-14 10:00:00 31829.03 32000.00 31825.56 31920.01 1452.0296
-## 97  2021-07-14 11:00:00 31920.01 31996.00 31702.92 31751.48 1637.1042
-## 98  2021-07-14 12:00:00 31751.48 32500.00 31550.00 32327.70 5200.5985
-## 99  2021-07-14 13:00:00 32330.00 32707.27 32260.83 32427.58 2759.7719
-## 100 2021-07-14 14:00:00 32427.59 32562.48 32366.34 32380.93  987.1142
+## 95  2021-07-15 06:00:00 32760.00 32785.23 32580.12 32641.65 1322.7809
+## 96  2021-07-15 07:00:00 32641.66 32691.42 32441.86 32665.53 1706.0646
+## 97  2021-07-15 08:00:00 32665.53 32665.53 32473.72 32583.90  923.6395
+## 98  2021-07-15 09:00:00 32582.71 32650.00 32366.12 32483.00 1404.6290
+## 99  2021-07-15 10:00:00 32483.00 32600.00 32359.65 32469.50 1675.7038
+## 100 2021-07-15 11:00:00 32468.30 32551.99 32394.20 32537.47  440.4091
 ##              Close_time
-## 95  2021-07-14 09:59:59
-## 96  2021-07-14 10:59:59
-## 97  2021-07-14 11:59:59
-## 98  2021-07-14 12:59:59
-## 99  2021-07-14 13:59:59
-## 100 2021-07-14 14:59:59</code></pre>
+## 95  2021-07-15 06:59:59
+## 96  2021-07-15 07:59:59
+## 97  2021-07-15 08:59:59
+## 98  2021-07-15 09:59:59
+## 99  2021-07-15 10:59:59
+## 100 2021-07-15 11:59:59</code></pre>
 <hr />
 </div>
 <div id="chapter46" class="section level2" number="4.8">
@@ -967,20 +967,20 @@ gs4_deauth()</code></pre>
 <div class="sourceCode" id="cb655"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb655-1"><a href="chapter4.html#cb655-1" aria-hidden="true" tabindex="-1"></a>time_trend <span class="ot">=</span> trends<span class="sc">$</span>interest_over_time</span>
 <span id="cb655-2"><a href="chapter4.html#cb655-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(time_trend) <span class="co"># last 6</span></span></code></pre></div>
 <pre><code>##         date hits      keyword geo                  time gprop category
-## 1 2021-01-01    7 Bitcoin-Kurs  AT 2021-01-01 2021-05-17   web        0
-## 2 2021-01-02    0 Bitcoin-Kurs  AT 2021-01-01 2021-05-17   web        0
-## 3 2021-01-03    6 Bitcoin-Kurs  AT 2021-01-01 2021-05-17   web        0
-## 4 2021-01-04    6 Bitcoin-Kurs  AT 2021-01-01 2021-05-17   web        0
+## 1 2021-01-01    0 Bitcoin-Kurs  AT 2021-01-01 2021-05-17   web        0
+## 2 2021-01-02    7 Bitcoin-Kurs  AT 2021-01-01 2021-05-17   web        0
+## 3 2021-01-03    0 Bitcoin-Kurs  AT 2021-01-01 2021-05-17   web        0
+## 4 2021-01-04    0 Bitcoin-Kurs  AT 2021-01-01 2021-05-17   web        0
 ## 5 2021-01-05    0 Bitcoin-Kurs  AT 2021-01-01 2021-05-17   web        0
 ## 6 2021-01-06    0 Bitcoin-Kurs  AT 2021-01-01 2021-05-17   web        0</code></pre>
 <div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb657-1"><a href="chapter4.html#cb657-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(time_trend) <span class="co"># latest 6</span></span></code></pre></div>
 <pre><code>##           date hits      keyword geo                  time gprop category
-## 269 2021-05-12   16 FC Barcelona  AT 2021-01-01 2021-05-17   web        0
-## 270 2021-05-13    6 FC Barcelona  AT 2021-01-01 2021-05-17   web        0
-## 271 2021-05-14    0 FC Barcelona  AT 2021-01-01 2021-05-17   web        0
-## 272 2021-05-15    7 FC Barcelona  AT 2021-01-01 2021-05-17   web        0
-## 273 2021-05-16   19 FC Barcelona  AT 2021-01-01 2021-05-17   web        0
-## 274 2021-05-17   11 FC Barcelona  AT 2021-01-01 2021-05-17   web        0</code></pre>
+## 269 2021-05-12   35 FC Barcelona  AT 2021-01-01 2021-05-17   web        0
+## 270 2021-05-13   19 FC Barcelona  AT 2021-01-01 2021-05-17   web        0
+## 271 2021-05-14   13 FC Barcelona  AT 2021-01-01 2021-05-17   web        0
+## 272 2021-05-15   22 FC Barcelona  AT 2021-01-01 2021-05-17   web        0
+## 273 2021-05-16   50 FC Barcelona  AT 2021-01-01 2021-05-17   web        0
+## 274 2021-05-17   40 FC Barcelona  AT 2021-01-01 2021-05-17   web        0</code></pre>
 <p>Let’s visualize query results:</p>
 <div class="sourceCode" id="cb659"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb659-1"><a href="chapter4.html#cb659-1" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>time_trend, <span class="fu">aes</span>(<span class="at">x=</span>date, <span class="at">y=</span>hits, <span class="at">group=</span>keyword, <span class="at">col=</span>keyword)) <span class="sc">+</span></span>
 <span id="cb659-2"><a href="chapter4.html#cb659-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
@@ -1011,7 +1011,7 @@ gs4_deauth()</code></pre>
 ## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 ## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
 <div class="sourceCode" id="cb663"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb663-1"><a href="chapter4.html#cb663-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create new db file</span></span>
-<span id="cb663-2"><a href="chapter4.html#cb663-2" aria-hidden="true" tabindex="-1"></a>db_path <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&quot;data/cars_1.sqlite&quot;</span>) <span class="co"># change file name for new create connection</span></span>
+<span id="cb663-2"><a href="chapter4.html#cb663-2" aria-hidden="true" tabindex="-1"></a>db_path <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&quot;data/cars_11.sqlite&quot;</span>) <span class="co"># change file name for new create connection</span></span>
 <span id="cb663-3"><a href="chapter4.html#cb663-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create connection</span></span>
 <span id="cb663-4"><a href="chapter4.html#cb663-4" aria-hidden="true" tabindex="-1"></a>conn <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), </span>
 <span id="cb663-5"><a href="chapter4.html#cb663-5" aria-hidden="true" tabindex="-1"></a>                    db_path,</span>
